@@ -12,10 +12,12 @@ Specifications
 --------------
 ***
   * Don't follow to :
-    * First, duplicate and rename `/app/config/config.yml.dist` file in `/app/config/config.yml`
+    * First, duplicate and rename `/app/config/config.yml.dist` file in
+    `/app/config/config.yml`
     * Change twitter_name variable in `/app/config/config.yml` file _(line 15)_
     * Change mats robots in `/app/config/config.yml` file _(line 16)_
-    * Change mailoptions password variable of mail client in `/app/config/config.yml` file _(line 348)_
+    * Change mailoptions password variable of mail client in
+    `/app/config/config.yml` file _(line 348)_
 
 
 Instances
@@ -39,24 +41,33 @@ Internal(s) Contact(s)
 Install procedure
 --------------
 ***
-1. bolt
+1. Ampps
+  * In Ampps web server, You should be manage domains :
+    * In http://localhost/ampps/, go to `Add domain` and type the following
+    commands in the corresponding fields:
+      * Domain : `westinnova.dev`
+      * Domain Path : `/Users/{username}/Documents/{workspace}/westinnova/public`
+1. Bolt
   * To start the install just run the following in the root folder.
     * `composer require bolt/bolt ^3.4`
-  * After the packages have downloaded, you can choose whether you would like a
-  separate public directory and if so choose a name.
+  * After the packages have downloaded, you can go to http://westinnova.dev and
+  follow the instructions
   * More informations at http://docs.bolt.cm/
   * Extensions installed :
-    * boltforms
-    * minify-html
+    * boltforms (custom forms)
+    * minify-html (html minifier when debug mode is at false)
 2. Front
   * Place to `/app/resources/front` on your terminal
   * After install and configure nodeJS and npm, run the following commands :
     * `npm install` will install the packages listed in `package.json` file
     * `gulp develop` to run project in debug mode
     * `gulp img-optimization` to rebuild images optimization
-    * `gulp releasePatch` to run project in production mode and release project with patch modification version
-    * `gulp releaseMinor` to run project in production mode and release project with minor modification version
-    * `gulp releaseMajor` to run project in production mode and release project with major modification version
+    * `gulp releasePatch` to run project in production mode and release project
+    with patch modification version
+    * `gulp releaseMinor` to run project in production mode and release project
+    with minor modification version
+    * `gulp releaseMajor` to run project in production mode and release project
+    with major modification version
 
 
 Deploy procedure
