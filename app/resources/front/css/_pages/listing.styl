@@ -1,0 +1,70 @@
+/***************************************/
+
+.l-head
+    margin-bottom                       40px
+
+.l-intro
+    margin-top                          30px
+    font-style                          italic
+    color                               $color5
+
+.l-list
+    margin-bottom                       10px
+
+.l-itm
+    margin-bottom                       40px
+    padding-bottom                      30px
+    border-bottom                       1px solid $color7
+
+    &:last-child
+        border-bottom                   none
+
+.l-lnk
+    display                             block
+    text-decoration                     none
+
+.l-wrapper-img
+    margin-bottom                       10px
+    width                               100%
+    text-align                          center
+
+.l-default-img
+.l-img
+    width                               100%
+    max-width                           300px
+    height                              200px
+
+.l-default-img
+    background-color                    $color7
+
+.l-title-1
+    font-size                           2.2rem
+    text-transform                      uppercase
+    color                               $color3
+    margin-bottom                       10px
+
+.l-content
+    p
+        font-size                       1.3rem
+
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .l-itm
+        clearfix()
+
+    .l-wrapper-img
+        float                           left
+        margin-bottom                   0
+        margin-top                      8px
+        width                           300px
+        text-align                      left
+        margin-right                    20px
+
+/* Mediaqueries Desktop ( >= 960px) */
+// @media all and ( min-width: $mediumScreenContentMaxWidth )
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )
