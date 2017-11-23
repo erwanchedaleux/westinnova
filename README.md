@@ -40,13 +40,12 @@ Install procedure
 --------------
 ***
 1. bolt
-  * To start the install just run the following command replacing the project with
-  the name you want to use.
-    * `composer create-project bolt/composer-install:^3.3@beta <MYPROJECT> --prefer-dist`
+  * To start the install just run the following in the root folder.
+    * `composer require bolt/bolt ^3.4`
   * After the packages have downloaded, you can choose whether you would like a
   separate public directory and if so choose a name.
   * More informations at http://docs.bolt.cm/
-  * Extensions
+  * Extensions installed :
     * boltforms
     * minify-html
 2. Front
