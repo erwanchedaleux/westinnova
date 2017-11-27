@@ -11,7 +11,7 @@
     {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '')) %}
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
     {%- set current_url = canonical() %}
-    {%- set site_logo = 'logo-bolt' %}
+    {%- set site_logo = 'logo-westinnova' %}
 
     {%- if meta_title is not empty -%}
         {% set meta_title = meta_title ~  ' | ' ~ site_title %}
@@ -23,7 +23,7 @@
 
     <title>{% block title %}{{ meta_title }}{% endblock %}</title>
     <meta name="description" content="{{ meta_description }}">
-    <meta name="robots" content="{{ config.get('general/robots') }}">
+    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 ? 'noindex, nofollow' : config.get('general/robots')) }}">
 
     {# OPENGRAPH #}
     {%- block opengraph_meta -%}

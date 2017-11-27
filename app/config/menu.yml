@@ -5,19 +5,23 @@ main:
     - label: Accueil
       title: Retourner à la page d'accueil
       path: homepage
-    - label: Pages
-      link: '#'
+    - label: À propos
+      path: page/a-propos
+    - label: Services
+      path: page/services
       submenu:
-        - label: Toutes
-          path: pages/
-        - label: À propos
-          path: page/about
-        - label: Contact
-          path: page/contact
-    - label: Pages d'erreurs
-      link: '#'
-      submenu:
-          - label: Navigateur obsolète
-            path: page/old-browser
-          - label: Erreur 404
-            path: page/404-not-found
+          - label: Web Design
+            path: page/web-design
+          - label: Intrégration/Développement
+            path: page/developpement
+          - label: Référencement
+            path: page/referencement
+    - label: Contact
+      path: page/contact
+    # - label: Pages d'erreurs
+    #   link: '#'
+    #   submenu:
+    #       - label: Navigateur obsolète
+    #         path: page/old-browser
+    #       - label: Erreur 404
+    #         path: page/404-not-found

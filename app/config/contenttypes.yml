@@ -48,9 +48,9 @@ pages:
             label: Texte sur l'image
             type: html
             height: 100px
-        image_hero_button:
-            label: Intitulé du bouton de l'image
-            type: text
+        image_hero_arrow:
+            type: checkbox
+            label: "Afficher une flèche avec une ancre"
         meta_title:
             group: SEO
             label: Titre SEO

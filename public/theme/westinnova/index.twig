@@ -4,16 +4,40 @@
 
     {% if record is defined %}
         {% if record.image != "" %}
-            {% include 'partials/_hero.twig' with {'img': record.image, 'baseline': record.image_hero_baseline, 'btn': record.image_hero_button} %}
+            {% include 'partials/_hero.twig' with {
+                'img': record.image,
+                'baseline': record.image_hero_baseline,
+                'arrow': record.image_hero_arrow
+            } %}
         {% endif %}
-        <div class="site-content article">
+        <div class="site-content article" id="about">
             <div class="inner">
-                <div class="sc-teaser">
-                    {{ record.teaser }}
-                </div>
-                <div class="sc-body">
-                    {{ record.body }}
-                </div>
+                {% if record.teaser %}
+                    <div class="sc-teaser">
+                        {{ record.teaser }}
+                    </div>
+                {% endif %}
+                {% if record.body %}
+                    <div class="sc-body">
+                        {{ record.body }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if record.panel is defined %}
+            <div class="site-panel article">
+                {% include 'partials/_panel.twig' with {
+                    'panel_name': 'block/panel-home-services'
+                } %}
+            </div>
+        {% endif %}
+        <div class="site-contact" id="contact">
+            {% include 'partials/_panel.twig' with {
+                'panel_name': 'block/panel-home-gmap'
+            } %}
+            <div class="mod-panel mod-panel-home-contact">
+                <h3 class="site-contact-title">Contactez-nous</h3>
+                {{ boltforms('contact') }}
             </div>
         </div>
     {% endif %}

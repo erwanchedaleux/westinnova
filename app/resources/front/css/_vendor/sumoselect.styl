@@ -24,7 +24,7 @@
             padding 5px 8px
             border none
             box-sizing border-box
-            border-radius 5px
+            border-radius 0
         & > .optWrapper
             top 41px
             display block
@@ -35,8 +35,8 @@
     & > .CaptionCont
         position relative
         min-height 39px
-        background-color $color2
-        border-radius 2px
+        background-color $color10
+        border-radius 0
         margin 0
         & > span
             display block
@@ -45,6 +45,7 @@
             white-space nowrap
             overflow hidden
             cursor default
+            color $color6
             &.placeholder
                 color #ccc
                 font-style italic
@@ -79,7 +80,7 @@
         background $color2
         border 1px solid $color7
         box-shadow 2px 3px 3px rgba($color1, 0.11)
-        border-radius 3px
+        border-radius 0
         overflow hidden
         ul
             list-style none
@@ -88,7 +89,7 @@
             margin 0
             overflow auto
         & > .options
-            border-radius 2px
+            border-radius 0
             position relative
             max-height 250px
             li
@@ -130,20 +131,20 @@
             & > li
                 &.opt
                     &:first-child
-                        border-radius 2px 2px 0 0
+                        border-radius 0
                     &:last-child
-                        border-radius 0 0 2px 2px
+                        border-radius 0
                         border-bottom none
         &.okCancelInMulti
             & > .options
-                border-radius 2px 2px 0 0
+                border-radius 0
                 & > li
                     &.opt
                         &:last-child
                             border-radius 0
         &.selall
             & > .options
-                border-radius 0 0 2px 2px
+                border-radius 0
                 & > li
                     &.opt
                         &:first-child
@@ -195,9 +196,9 @@
                         background-color #f1f1f1
                     &.btnOk
                         border-right 1px solid #DBDBDB
-                        border-radius 0 0 0 3px
+                        border-radius 0
                     &.btnCancel
-                        border-radius 0 0 3px 0
+                        border-radius 0
         &.isFloating
             position fixed
             top 0
@@ -218,7 +219,7 @@
             border-top 1px solid $color7
             background-color $color2
             box-shadow 0 0 2px rgba($color1, 0.13)
-            border-radius 0 0 3px 3px
+            border-radius 0
     &.disabled
         opacity 0.7
         cursor not-allowed
@@ -226,7 +227,7 @@
             border-color $color6
             box-shadow none
     .select-all
-        border-radius 3px 3px 0 0
+        border-radius 0
         position relative
         border-bottom 1px solid $color7
         background-color $color2
@@ -269,11 +270,6 @@
 .SumoSelect .select-all > label
     user-select none
 
-.SumoSelect:focus > .CaptionCont
-.SumoSelect:hover > .CaptionCont
-.SumoSelect.open > .CaptionCont
-    box-shadow 0 0 1px $color5
-
 .SumoSelect > .optWrapper > .options li.opt.sel
 .SumoSelect .select-all.sel
     background-color $color9
@@ -298,7 +294,7 @@
     width 14px
     height 14px
     border 1px solid $color8
-    border-radius 2px
+    border-radius 0
     box-shadow inset 0 1px 3px rgba($color1, 0.15)
     background-color $color2
 

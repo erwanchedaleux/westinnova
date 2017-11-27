@@ -38,18 +38,19 @@
 
 .boltforms-value
     display                             block
-    background-color                    $color2
-    border                              1px solid $color7
-    border-radius                       4px
+    background-color                    $color10
+    border                              1px solid $color9
+    border-radius                       0
+    transition4(border-color)
 
     input:not([type="hidden"])
     textarea
     select
         padding                         10px
         width                           100%
-        background-color                transparent
+        background-color                $color10
         border                          none
-        color                           $color5
+        color                           $color7
 
     select
         padding                         0 5px
@@ -61,7 +62,7 @@
 
     &:hover
     &:focus
-        border-color                    $color6
+        border-color                    $color7
 
 .boltforms-btn-1-row
     text-align                          right
@@ -71,6 +72,7 @@
     color                               $successColor
     padding                             10px
     border-radius                       3px
+    margin-bottom                       20px
 
 .boltform-error
     border                              1px dashed $errorColor

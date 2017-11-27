@@ -21,7 +21,9 @@
     padding                             10px
 
     &.active
-        font-b()
+        .sn-lnk
+            color                       $color3
+            font-b()
 
 .sn-lnk
     display                             block
@@ -49,7 +51,7 @@
     float                               right
     width                               30px
     height                              @width
-    margin-right                        15px
+    margin-right                        7px
 
 .snm-btn
     position                            relative
@@ -67,7 +69,7 @@
     display                             block
     width                               30px
     height                              2px
-    background-color                    $color2
+    background-color                    $color3
     transition3()
 
     &:nth-child(1)
@@ -120,13 +122,14 @@
 
     .site-navigation
         position                        relative
-        width                           100%
-        height                          auto
-        background-color                $color4
+        float                           right
+        width                           auto
+        height                          @width
         transform                       inherit
-        
+        background-color                transparent
+
     .sn-list
-        padding                         0
+        padding                         15px 0
         margin                          0 -20px
         font-size                       0
 
@@ -137,24 +140,27 @@
         width                           auto
 
     .sn-lnk
-        padding                         10px 20px
-        font-size                       1.4rem
+        padding                         12px 20px
+        font-size                       1.6rem
         text-transform                  none
+        color                           $color5
+        text-transform                  uppercase
+        transition2()
 
         &:hover
-            background-color            $color3
+            color                       $color3
 
     .sn-itm-dropdown
         position                        relative
 
         &:hover
             > .sn-lnk
-                background-color        $color3
+                color                   $color3
 
         .sn-list
             display                     none
             position                    absolute
-            background-color            $color3
+            background-color            $color2
             margin                      0
             padding                     0
             min-width                   100%
@@ -165,10 +171,9 @@
 
             .sn-lnk
                 padding                 5px 20px
+                font-size               1.4rem
 
                 &:hover
-                    background-color    $color4
-
                     .sn-list
                         display         block
 

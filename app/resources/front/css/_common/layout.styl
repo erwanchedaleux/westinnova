@@ -2,6 +2,10 @@
 
 html
 body
+    overflow-x                          hidden
+
+html
+body
 #main
     width                               100%
     height                              100%
@@ -9,12 +13,15 @@ body
 
 body
     position                            relative
-    overflow-x                          hidden
 
 #main
     font-size                           1.4rem
     transition4(transform)
     font-1()
+
+    &:after
+        content                     ""
+        transition3()
 
 .site-wrapper
     min-height                          100%
@@ -29,7 +36,7 @@ body
         opacity                         0
 
 .site-content
-    padding                             10px 0
+    padding                             20px 0
 
 .sc-teaser
     padding-bottom                      20px
@@ -45,8 +52,20 @@ body
     padding                             0 10px
 
 .js-nav-mobile-opened
+    overflow-y                          hidden
+
     #main
         transform                       translateX(-80%)
+
+        &:after
+            content                     ""
+            position                    absolute
+            top                         50px
+            left                        0
+            width                       100%
+            height                      @width
+            background-color            rgba($color1, 0.8)
+
 
 
 /* Mediaqueries Tablet ( >= 640px) */
@@ -80,11 +99,12 @@ body
         padding                         20px 0
 
     .sc-teaser
-        padding-bottom                      40px
-        margin-bottom                       40px
+        padding-bottom                  40px
+        margin-bottom                   40px
 
     .sc-body
-        padding-bottom                      30px
+        padding-top                     30px
+        padding-bottom                  30px
 
     .js-nav-mobile-opened
         #main

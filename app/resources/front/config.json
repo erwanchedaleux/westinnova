@@ -9,11 +9,11 @@
             "imgOptimized"              : "img/img_optimized/"
         },
         "web":  {
-            "base"                      : "../../../public/theme/socle/",
-            "system"                    : "../../../public/theme/socle/system/",
-            "js"                        : "../../../public/theme/socle/assets/js/",
-            "css"                       : "../../../public/theme/socle/assets/css/",
-            "media"                     : "../../../public/theme/socle/assets/media/"
+            "base"                      : "../../../public/theme/westinnova/",
+            "system"                    : "../../../public/theme/westinnova/system/",
+            "js"                        : "../../../public/theme/westinnova/assets/js/",
+            "css"                       : "../../../public/theme/westinnova/assets/css/",
+            "media"                     : "../../../public/theme/westinnova/assets/media/"
         }
     }
 }

@@ -1,18 +1,12 @@
 {% extends '_base.twig' %}
 
 {% block global_content %}
-
-    <div id="main">
+    <div id="main" class="{{ (record is defined and record.slug is not empty ? 'page-' ~ record.slug : '') }}">
         <div class="site-wrapper">
             {% block header %}
                 {% include 'partials/_header.twig' %}
             {% endblock header %}
             {% block content '' %}
-            {% block site_block %}
-                {% if record.panel is defined %}
-                    {{ include('partials/_panel.twig') }}
-                {% endif %}
-            {% endblock %}
         </div>
         {%- block footer -%}
             {% include 'partials/_footer.twig' %}

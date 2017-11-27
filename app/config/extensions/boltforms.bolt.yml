@@ -33,7 +33,7 @@ csrf: true
 # inside your theme, you would use similar to:
 #
 templates:
-   # form: extensions/boltforms/form.twig
+   form: templates/boltforms/form.twig
    email: templates/boltforms/email.twig
    # subject: extensions/boltforms/subject.twig
    # files: extensions/boltforms/file_browser.twig
@@ -150,7 +150,7 @@ contact:
             options:
                 required: true
                 label: Sujet
-                choices: { "Demande d'informations" : "Demande d'informations", "Question à l'administrateur" : "Question à l'administrateur" }
+                choices: { "Demande de devis" : "Demande de devis", "Informations diverses" : "Informations diverses", "Question à l'administrateur" : "Question à l'administrateur" }
                 multiple: false
         message:
             type: textarea

@@ -20,21 +20,17 @@
                  class="mod-hero-img">
         </picture>
     </div>
-    {% if baseline is not empty or btn is not empty %}
+    {% if baseline is not empty %}
         <div class="mod-hero-content">
             {% if baseline is not empty %}
-                <div class="mod-hero-1">
-                    <div class="mod-hero-text">
-                        <span class="mod-hero-baseline">
-                            {{ baseline }}
-                        </span>
-                    </div>
+                <div class="mod-hero-baseline">
+                    {{ baseline }}
                 </div>
             {% endif %}
-            {% if btn is not empty %}
-                <div class="mod-hero-2">
-                    <a href="#" class="mod-hero-btn btn-1">
-                        {{ btn }}
+            {% if arrow is not empty and arrow == 1 %}
+                <div class="mode-hero-icon">
+                    <a href="#about" class="icon-arrow-1-c">
+                        Voir la suite
                     </a>
                 </div>
             {% endif %}

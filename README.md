@@ -18,6 +18,12 @@ Specifications
     * Change mats robots in `/app/config/config.yml` file _(line 16)_
     * Change mailoptions password variable of mail client in
     `/app/config/config.yml` file _(line 348)_
+    * In `/app/resources/front/package.json` file, replace `socle` namespace by
+    the good values of your new theme
+    * In `/app/resources/front/config.json` file, change the theme namespace,
+    replace `socle` by the name of your new theme
+    * In `/public/theme/westinnova/system/config.js` file, change the theme namespace,
+    replace `socle` by the name of your new theme
 
 
 Instances

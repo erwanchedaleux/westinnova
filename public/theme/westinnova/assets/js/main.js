@@ -1,7 +1,7 @@
 /*!
- *  Bolt Socle
+ *  Westinnova
  *  @author: Erwan Chedaleux
- *  @version: 1.0.0
+ *  @version: 0.0.8
  *  
  *  Thanks to 
  *

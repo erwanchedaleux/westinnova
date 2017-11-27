@@ -9,10 +9,10 @@ PROJECT.Settings = {
 
 PROJECT.files = {
     "main": [
-        "/theme/socle/assets/js/lib.js",
-        "/theme/socle/assets/js/scripts.js"
+        "/theme/westinnova/assets/js/lib.js",
+        "/theme/westinnova/assets/js/scripts.js"
     ],
     "picturefill": [
-        "/theme/socle/assets/js/polyfill/picturefill.js"
+        "/theme/westinnova/assets/js/polyfill/picturefill.js"
     ]
 };
