@@ -93,7 +93,8 @@ module.exports = function( gulp, pkg, config ) {
                 .src( [
                     config.path.resources.js + 'vendor/polyfill/polyfill.js',
                     config.path.resources.js + 'vendor/plugins/jquery.js',
-                    config.path.resources.js + 'vendor/plugins/jquery.sumoselect.js'
+                    config.path.resources.js + 'vendor/plugins/jquery.sumoselect.js',
+                    config.path.resources.js + 'vendor/plugins/waves.js'
                 ] )
                 .pipe( gulpConcat( 'lib.js' ) )
                 .pipe( header( credits.library.join( '\n *  ' ), pkg ) )

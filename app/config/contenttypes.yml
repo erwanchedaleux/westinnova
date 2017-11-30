@@ -31,9 +31,6 @@ pages:
         template:
             type: templateselect
             filter: '*.twig'
-        panel:
-            type: checkbox
-            label: "Afficher le panneau du bas"
         robots:
             type: checkbox
             label: "référencer cette page"
@@ -51,6 +48,9 @@ pages:
         image_hero_arrow:
             type: checkbox
             label: "Afficher une flèche avec une ancre"
+        image_hero_arrow_link:
+            type: text
+            label: "Cible de l'ancre (id)"
         meta_title:
             group: SEO
             label: Titre SEO

@@ -2,17 +2,15 @@
 module.exports = ( function ( $ ) {
 
     function Header( $body, $header ) {
-        var $btnNavMobile, $navigation, $siteContent,
-            prevTop, headerHeight, navigationHeight,
+        var $btnNavMobile, $siteContent,
+            prevTop, headerHeight,
             OPENED_NAV_CLS, STICKY_NAV_CLS;
 
         $btnNavMobile                   = $header.find( '.snm-btn' );
-        $navigation                     = $header.find( '.site-navigation' );
         $siteContent                    = $( '.site-wrapper' ).children().not( '.site-header' );
 
         prevTop                         = 0;
         headerHeight                    = parseInt( $header.outerHeight(), 10 );
-        navigationHeight                = parseInt( $navigation.height(), 10 );
 
         OPENED_NAV_CLS                  = 'js-nav-mobile-opened';
         STICKY_NAV_CLS                  = 'sticky-nav';
@@ -40,9 +38,9 @@ module.exports = ( function ( $ ) {
             if( prevTop !== currentTop ) {
                 prevTop                 = currentTop;
 
-                if ( currentTop <= ( headerHeight - navigationHeight ) && $body.hasClass( STICKY_NAV_CLS ) ) {
+                if ( currentTop <= headerHeight && $body.hasClass( STICKY_NAV_CLS ) ) {
                     $body.removeClass( STICKY_NAV_CLS );
-                } else if ( currentTop > ( headerHeight - navigationHeight ) && !$body.hasClass( STICKY_NAV_CLS ) ) {
+                } else if ( currentTop > headerHeight && !$body.hasClass( STICKY_NAV_CLS ) ) {
                     $body.addClass( STICKY_NAV_CLS );
                 }
 
@@ -98,7 +96,7 @@ module.exports = ( function ( $ ) {
 
         }
 
-        $( document ).scroll( scrollHandler );
+        $( window ).scroll( scrollHandler );
         $( window ).resize( resizehandler );
         $btnNavMobile.on( 'click', toggleMobileNav );
         $header.on( 'click', '.sn-lnk[href!="#"]', navigationHandler );

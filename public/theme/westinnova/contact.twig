@@ -1,25 +1,36 @@
 {% extends '_extended_base.twig' %}
 
 {% block content %}
-
     {% if record is defined %}
         {% if record.image != "" %}
             {% include 'partials/_hero.twig' with {
                 'img': record.image,
                 'baseline': record.image_hero_baseline,
-                'arrow': record.image_hero_arrow
+                'arrow': record.image_hero_arrow,
+                'anchor': record.image_hero_arrow_link
             } %}
         {% endif %}
         <div class="site-content article">
             <div class="inner">
-                <div class="sc-teaser">
-                    {{ record.teaser }}
-                </div>
-                <div class="sc-form">
-                    {{ boltforms('contact') }}
-                </div>
-                <div class="sc-body">
-                    {{ record.body }}
+                {% if record.teaser %}
+                    <div class="sc-teaser">
+                        {{ record.teaser }}
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="sc-form col-desktop-6">
+                        {{ boltforms('contact') }}
+                    </div>
+                    <div class="col-desktop-6">
+                        {% include 'partials/_panel.twig' with {
+                            'panel_name': 'block/panel-home-gmap'
+                        } %}
+                        {% if record.body %}
+                            <div class="sc-body">
+                                {{ record.body }}
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

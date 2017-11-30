@@ -25,7 +25,7 @@
 
                                             {% if repeater_panel.image %}
                                                 <img srcset="{{ thumbnail(repeater_panel.image, 300, 295) ~ '?' ~ version }} 300w,
-                                                             {{ thumbnail(repeater_panel.image, 370, 364) ~ '?' ~ version }} 300w,
+                                                             {{ thumbnail(repeater_panel.image, 370, 364) ~ '?' ~ version }} 370w,
                                                              {{ thumbnail(repeater_panel.image, 555, 546) ~ '?' ~ version }} 555w"
                                                      sizes="(max-width:639px) 300px, (min-width:640px) 370px"
                                                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -59,18 +59,18 @@
         {% elseif panel.slug == 'panel-home-gmap' %}
             <div class="mod-panel mod-{{ panel.slug }}">
                 <div class="mod-panel-gmap">
-                    <a href="https://www.google.fr/maps/place/44%C2%B058'55.2%22N+0%C2%B037'36.4%22W/@44.9820014,-0.6278857,291m/data=!3m2!1e3!4b1!4m8!1m2!2m1!1s8,+rue+du+clos+de+l'agneau+33290+ludon-m%C3%A9doc!3m4!1s0x0:0x0!8m2!3d44.9819995!4d-0.6267771?hl=fr" target="_blank" title="Ouvrir dans Google Map" class="mod-panel-gmap-lnk">
+                    <a href="https://www.google.fr/maps/place/44%C2%B058'55.2%22N+0%C2%B037'36.4%22W/@44.9820014,-0.6278857,291m/data=!3m2!1e3!4b1!4m8!1m2!2m1!1s8,+rue+du+clos+de+l'agneau+33290+ludon-m%C3%A9doc!3m4!1s0x0:0x0!8m2!3d44.9819995!4d-0.6267771?hl=fr" rel="noopener" target="_blank" title="Ouvrir dans Google Map" class="mod-panel-gmap-lnk">
                          <picture>
-                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=15&size=320x263&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 320w,
-                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=15&size=320x263&scale=2&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 640w"
+                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=15&size=320x263&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 320w,
+                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=15&size=320x263&scale=2&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 640w"
                                      media="(max-width: 639px)"
                                      sizes="100vw">
-                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=14&size=640x241&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 640w,
-                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=14&size=640x241&scale=2&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 1280w"
+                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=14&size=640x241&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 640w,
+                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=14&size=640x241&scale=2&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 1280w"
                                      media="(min-width: 640px) and (max-width: 959px)"
                                      sizes="100vw">
-                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=13&size=480x620&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 480w,
-                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=13&size=480x620&scale=2&maptype=roadmap&markers=color:blue%7Clabel:S%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 960w"
+                             <source srcset="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=13&size=480x620&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 480w,
+                                             https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=13&size=480x620&scale=2&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE 960w"
                                      media="(min-width: 960px)"
                                      sizes="480px">
                              <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

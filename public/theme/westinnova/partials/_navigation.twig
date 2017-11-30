@@ -14,8 +14,8 @@
 {% macro display_menu_item(item, loop, extraclass, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% spaceless %}
-    <li class="sn-itm{{ item.class|default('') }}{{ (item.submenu|default(false) and withsubmenus) ? ' sn-itm-dropdown' -}}{{ item|current ? ' active' }}">
-        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class="sn-lnk">
+    <li class="sn-itm{{ (item.submenu|default(false) and withsubmenus) ? ' sn-itm-dropdown' -}}{{ item|current ? ' active' }}">
+        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class="sn-lnk{{ item.class|default('') }}">
             {{- item.label|default('-') -}}
         </a>
         {% if item.submenu is defined and withsubmenus %}

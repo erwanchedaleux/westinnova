@@ -1,13 +1,3 @@
-/*!
- * jquery.sumoselect - v3.0.3
- * http://hemantnegi.github.io/jquery.sumoselect
- * 2016-12-12
- *
- * Copyright 2015 Hemant Negi
- * Email : hemant.frnz@gmail.com
- * Compressor http://refresh-sf.com/
- */
-
 (function(factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {

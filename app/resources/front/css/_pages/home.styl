@@ -32,10 +32,10 @@
                 border-radius           50%
                 padding                 20px
                 text-align              center
-                transform               scale(0.75)
+                transform               scale(0.45)
                 position                absolute
                 top                     -40px
-                left                    30px
+                left                    10px
 
     .mod-panel-home-services
         .mod-panel-wrapper-block
@@ -46,7 +46,19 @@
             margin-bottom               20px
 
         .mod-panel-background
+            position                    relative
             overflow                    hidden
+
+            &:after
+                content                 ""
+                position                absolute
+                top                     0
+                left                    0
+                width                   100%
+                height                  @width
+                background-color        $color5
+                opacity                 0.2
+                transition4(transform)
 
         .mod-panel-img
             transition4(transform)
@@ -64,6 +76,10 @@
 
                     .mod-panel-img
                         transform       scale(1.05)
+
+                    .mod-panel-background
+                        &:after
+                            transform   scale(0)
 
         .mod-panel-img
             display                     block
@@ -83,6 +99,14 @@
         padding                         40px 0
         margin-bottom                   20px
 
+        &:hover
+            .mod-panel-gmap-img
+                transform               translate(-50%, -50%) scale(1.05)
+
+            .mod-panel-global-content
+                transform               translate(-50%, -50%) scale(0.95)
+                opacity                 0.9
+
         .mod-panel-gmap
             position                    absolute
             top                         0
@@ -98,10 +122,6 @@
             width                       100%
             height                      @width
 
-            &:hover
-                .mod-panel-gmap-img
-                    transform           translate(-50%, -50%) scale(1.05)
-
         .mod-panel-gmap-img
             width                       100%
             transition4(transform)
@@ -114,6 +134,7 @@
             background-color            $color2
             padding                     20px
             margin                      0 auto
+            transition3()
             font-l()
 
             .city
@@ -182,6 +203,12 @@
 
         .mod-panel-global-content
             margin-bottom               40px
+
+        .mod-panel-global-content
+            &.icon-marker
+                &:before
+                    transform           scale(0.75)
+                    left                30px
 
         .mod-panel-home-services
             .mod-panel-title-2

@@ -17,7 +17,8 @@ main:
           - label: Référencement
             path: page/referencement
     - label: Contact
-      path: page/contact
+      link: /#contact
+      class: " scroll-to"
     # - label: Pages d'erreurs
     #   link: '#'
     #   submenu:

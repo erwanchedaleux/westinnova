@@ -29,7 +29,7 @@
             {% endif %}
             {% if arrow is not empty and arrow == 1 %}
                 <div class="mode-hero-icon">
-                    <a href="#about" class="icon-arrow-1-c">
+                    <a href="#{{ (anchor is defined and anchor is not empty) ? anchor : '' }}" class="icon-arrow-1-c scroll-to">
                         Voir la suite
                     </a>
                 </div>
