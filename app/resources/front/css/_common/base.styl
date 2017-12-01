@@ -2,12 +2,14 @@
 
 .article
     h1
+    .title-1
         font-size                       3.4rem
         text-transform                  uppercase
         color                           $color3
         font-b()
 
     h2
+    .title-2
         font-size                       3rem
         line-height                     1.2
         color                           $color4
@@ -16,23 +18,27 @@
         font-b()
 
     h3
-        font-size                       2.4rem
+    .title-3
+        font-size                       1.8rem
         text-transform                  uppercase
         color                           $color5
         font-b()
 
     h4
+    .title-4
         font-size                       2.2rem
         color                           $color5
         font-sb()
 
     h5
+    .title-5
         font-size                       2rem
         font-style                      italic
         color                           $color6
         font-b()
 
     h6
+    .title-6
         font-size                       1.8rem
         font-l()
 
@@ -40,13 +46,14 @@
         margin-bottom                   10px
         font-size                       1.2rem
 
-        &.intro
-            padding                     20px
-            border-radius               0
-            border-radius               3px
-            font-style                  italic
-            color                       $color3
-            font-b()
+    .intro
+        padding                         20px
+        border-radius                   0
+        border-radius                   3px
+        font-style                      italic
+        color                           $color3
+        text-align                      center
+        font-b()
 
     ul
         margin-bottom                   10px
@@ -110,9 +117,6 @@
             border-radius               3px
             overflow                    auto
 
-    strong
-        color                           $color7
-
 
 /* Mediaqueries Tablet ( >= 640px) */
 @media all and ( max-width: $smallScreenContentMinWidth )
@@ -135,7 +139,7 @@
             font-size                   3.4rem
 
         h3
-            font-size                   3rem
+            font-size                   2.3rem
 
         h4
             font-size                   2.8rem
