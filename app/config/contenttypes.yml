@@ -237,6 +237,11 @@ blocks:
         slug:
             type: slug
             uses: [ title ]
+        image_hero:
+            label: Image
+            postfix: "<p><em>Image de background<br/>Taille minimum de l'image : 2400px x 990px.</em></p>"
+            type: image
+            extensions: [ jpg ]
         content:
             type: html
             height: 150px

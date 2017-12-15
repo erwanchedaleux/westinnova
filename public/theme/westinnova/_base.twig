@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     {%- set debug = config.get('general/debug') %}
+    {%- set maintenance = config.get('general/maintenance_mode') %}
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
     {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : (meta_title_override is defined ? meta_title_override|striptags : '')) %}
@@ -23,7 +24,7 @@
 
     <title>{% block title %}{{ meta_title }}{% endblock %}</title>
     <meta name="description" content="{{ meta_description }}">
-    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 ? 'noindex, nofollow' : config.get('general/robots')) }}">
+    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 or maintenance is defined and maintenance ? 'noindex, nofollow' : config.get('general/robots')) }}">
 
     {# OPENGRAPH #}
     {%- block opengraph_meta -%}

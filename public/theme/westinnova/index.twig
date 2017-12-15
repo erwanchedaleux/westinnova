@@ -28,13 +28,17 @@
         {% if record.panel is defined %}
             <div class="site-panel article">
                 {% include 'partials/_panel.twig' with {
-                    'panel_name': 'block/panel-home-services'
+                    'panel_name': [
+                        'block/panel-home-services',
+                        'block/panel-home-expertise',
+                        'block/panel-home-social-networks'
+                    ]
                 } %}
             </div>
         {% endif %}
         <div class="site-contact" id="contact">
             {% include 'partials/_panel.twig' with {
-                'panel_name': 'block/panel-home-gmap'
+                'panel_name': ['block/panel-home-gmap']
             } %}
             <div class="mod-panel mod-panel-home-contact">
                 <h3 class="site-contact-title">Contactez-nous</h3>
