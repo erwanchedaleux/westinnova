@@ -171,12 +171,6 @@
                 opacity                  0
                 transition3()
 
-            img
-                filter                  grayscale(100%)
-                -webkit-filter          grayscale(100%)
-                filter                  gray
-                transition4(filter)
-
             &:hover
                 transform               translateY(-20px) scale(1)
                 background-color        rgba($color8, 0.4)
@@ -185,9 +179,6 @@
 
                 &:after
                     opacity             1
-
-                img
-                    filter              none
 
     .mod-panel-home-social-networks
         position                        relative
@@ -246,6 +237,7 @@
                 display                 inline-block
                 width                   70px
                 height                  70px
+                margin                  0 8px
 
                 &:before
                     content             ""

@@ -21,6 +21,8 @@ module.exports = ( function ( $ ) {
             } );
         }
 
+        scrollHandler();
+
         /**
          * Receive window scroll user and animate site header instead body css class
          * @return {void}

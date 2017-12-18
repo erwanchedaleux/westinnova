@@ -2,32 +2,39 @@
 module.exports = ( function ( $ ) {
 
     function init() {
-        var Header, Form, ScrollTo,
-            $body, $header, $forms, $scrollsTo;
+        var Header, Form, ScrollTo, Hero,
+            $body, $header, $forms, $scrollsTo, $heroEffect;
 
         Header                                  = require( '../header.js' );
         Form                                    = require( '../form.js' );
         ScrollTo                                = require( '../scroll-to.js' );
+        Hero                                    = require( '../hero.js' );
 
         $body                                   = $( document.body );
         $header                                 = $( '.site-header' );
         $forms                                  = $( '.boltform form' );
         $scrollsTo                              = $( '.scroll-to' );
+        $heroEffect                             = $( '.hero-effect' );
 
 
-        if ( $header ) {
+        if ( $header.length ) {
             new Header( $body, $header );
 
         }
 
-        if ( $forms ) {
+        if ( $heroEffect.length ) {
+            new Hero( $heroEffect );
+
+        }
+
+        if ( $forms.length ) {
             $forms.each( function( index, form ) {
                 new Form( $( form ) );
             } );
 
         }
 
-        if ( $scrollsTo ) {
+        if ( $scrollsTo.length ) {
             $scrollsTo.each( function( index, scrollTo ) {
                 new ScrollTo( $( scrollTo ) );
             } );

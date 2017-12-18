@@ -1,13 +1,14 @@
 /*!
  *  Westinnova
  *  @author: Erwan Chedaleux
- *  @version: 0.0.19
+ *  @version: 0.0.20
  *  
  *  Thanks to 
  *
  *  jQuery JavaScript Library v3.2.1 | MIT | jQuery Foundation (http://jquery.com/)
  *  jquery Sumoselect v3.0.3 | Hemant Negi (http://hemantnegi.github.io/jquery.sumoselect)
  *  Waves v0.7.5 | MIT | Alfiana E. Sibuea and other contributors (http://fian.my.id/Waves)
+ *  Animation Playground MkII | Original Idea and Design by Luca Luzzatti | Optimizing tips from Benjamin Kästner | General tips from Salvatore Previti
  *  
 */
 

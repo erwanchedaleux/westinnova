@@ -30,7 +30,7 @@
     &:after
         content                         ""
         position                        absolute
-        background-color                rgba($color1, 0.7);
+        background-color                rgba($color1, 0.7)
         width                           100%
         height                          @width
 
@@ -91,6 +91,31 @@
         animation-name                  animateArrow
         animation-iteration-count       infinite
         hide-text()
+
+.hero-effect
+    position                            relative
+    overflow                            hidden
+
+    &:after
+        content                         ""
+        position                        absolute
+        top                             0
+        left                            0
+        background-color                rgba($color2, 0.8)
+        width                           100%
+        height                          100%
+
+    canvas
+        position                        absolute
+        top                             0
+        left                            0
+        width                           100%
+        height                          auto
+
+    .canvasbg
+        z-index                         -10
+        filter                          blur(3px)
+        opacity                         0.6
 
 
 @keyframes animateArrow

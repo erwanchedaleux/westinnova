@@ -1,7 +1,7 @@
 /*!
  *  Westinnova
  *  @author: Erwan Chedaleux
- *  @version: 0.0.18
+ *  @version: 0.0.19
  *  
  *  Thanks to 
  *
