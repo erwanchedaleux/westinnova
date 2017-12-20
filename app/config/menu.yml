@@ -9,13 +9,6 @@ main:
       path: page/a-propos
     - label: Services
       path: page/services
-      submenu:
-          - label: Web Design
-            path: page/web-design
-          - label: Intrégration/Développement
-            path: page/developpement
-          - label: Référencement
-            path: page/referencement
     - label: Contact
       link: /#contact
       class: " scroll-to"

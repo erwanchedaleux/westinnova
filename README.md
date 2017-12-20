@@ -15,8 +15,8 @@ Specifications
     * First, duplicate and rename `/app/config/config.yml.dist` file in
     `/app/config/config.yml`
     * Change twitter_name variable in `/app/config/config.yml` file _(line 15)_
-    * Change mats robots in `/app/config/config.yml` file _(line 16)_
-    * Change mailoptions password variable of mail client in
+    * Change metas robots in `/app/config/config.yml` file _(line 16)_
+    * Change mail options password variable of mail client in
     `/app/config/config.yml` file _(line 348)_
     * In `/app/resources/front/package.json` file, replace `socle` namespace by
     the good values of your new theme
@@ -24,6 +24,7 @@ Specifications
     replace `socle` by the name of your new theme
     * In `/public/theme/westinnova/system/config.js` file, change the theme namespace,
     replace `socle` by the name of your new theme
+    * For the test of sending emails, please follow this link : `https://github.com/bolt/boltforms/blob/master/doc/email.md`
 
 
 Instances

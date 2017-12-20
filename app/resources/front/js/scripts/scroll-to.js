@@ -2,6 +2,9 @@
 module.exports = ( function ( $ ) {
 
     function ScrollTo( $scrollTo ) {
+        var offsetTop;
+
+        offsetTop                       = 0;
 
 
         /**
@@ -15,7 +18,11 @@ module.exports = ( function ( $ ) {
             target                      = '#' + href.substr( href.indexOf( '#' ) + 1 );
             speed                       = 750;
 
-            $( 'html, body' ).animate( { scrollTop: $( target ).offset().top }, speed );
+            if ( $( this ).attr( 'data-offsettop' ) ) {
+                offsetTop               = $( this ).attr( 'data-offsettop' );
+            }
+
+            $( 'html, body' ).animate( { scrollTop: $( target ).offset().top - offsetTop }, speed );
 
             return false;
 

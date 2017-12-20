@@ -10,7 +10,7 @@
 # form can still enable it's own debug — specific for and to that form
 debug:
     enabled: false
-    address: erwan.chedaleux@gmail.com
+    address: contact@westinnova.com
 
 ## CSRF protection
 #
@@ -99,15 +99,15 @@ contact:
     notification:
         enabled: true
         debug: false
-        debug_address: erwan.chedaleux@gmail.com # Email address used when debug mode is enabled
+        debug_address: contact@westinnova.com # Email address used when debug mode is enabled
         debug_smtp: true
-        subject: Bolt Scole - Contact depuis le site
+        subject: Westinnova - Contact depuis le site
         from_name: [ first_name, last_name ]                 # Email addresses and names can be either the
         from_email: email_adress               # name of a field below or valid text.
         replyto_email: email_adress            #
         replyto_name: [ first_name, last_name ]              # NOTE: Email addresses must be valid
-        to_name: [ first_name, last_name ]                #
-        to_email: erwan.chedaleux@gmail.com   #
+        to_name: Westinnova                #
+        to_email: contact@westinnova.com   #
     feedback:
         success: Merci, votre message a bien été envoyé. Nous vous recontacterons dans les meilleurs délais
         error: Le formulaire contient des erreurs, Veuillez vérifier vos informations avant de valider

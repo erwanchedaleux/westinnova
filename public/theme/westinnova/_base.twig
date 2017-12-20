@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
     {%- set debug = config.get('general/debug') %}
+    {% set dev_mode = ('dev.westinnova' in canonical() ? 'true' : 'false') %}
     {%- set maintenance = config.get('general/maintenance_mode') %}
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
@@ -13,6 +11,19 @@
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
     {%- set current_url = canonical() %}
     {%- set site_logo = 'logo-westinnova' %}
+
+    {%- if not debug and dev_mode == 'false' -%}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111461450-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-111461450-1');
+    </script>
+    {%- endif -%}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     {%- if meta_title is not empty -%}
         {% set meta_title = meta_title ~  ' | ' ~ site_title %}
@@ -23,6 +34,7 @@
     {%- endif %}
 
     <title>{% block title %}{{ meta_title }}{% endblock %}</title>
+    <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
     <meta name="description" content="{{ meta_description }}">
     <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 or maintenance is defined and maintenance ? 'noindex, nofollow' : config.get('general/robots')) }}">
 

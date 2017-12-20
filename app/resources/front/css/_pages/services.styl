@@ -1,0 +1,127 @@
+/***************************************/
+
+.page-services
+    .site-content .inner
+        max-width                       100%
+        padding                         0
+
+        .sc-body .inner
+            max-width                   $innerWidth
+            padding                     0 10px
+
+    .blocks-services-wrapper
+        padding                         10px 0
+        margin-top                      30px
+        margin-bottom                   -35px
+        background-color                $color15
+
+    .blocks-services
+        margin-top                      30px
+
+    .block-services-wrapper
+        display                         block
+        margin                          0 auto 20px auto
+        padding                         0 10px
+
+        &:nth-child(1)
+            span
+                color                   $color12
+
+            h3
+                border-color            $color12
+
+        &:nth-child(2)
+            span
+                color                   $color14
+
+            h3
+                border-color            $color14
+
+        &:nth-child(3)
+            span
+                color                   $color13
+
+            h3
+                border-color            $color13
+
+    .block-services
+        background-color                $color2
+        padding                         20px
+
+        img
+            display                     block
+            margin                      0 auto 20px auto
+            width                       70px
+            height                      @width
+
+        span
+            display                     block
+            text-transform              uppercase
+            margin-bottom               5px
+            color                       $color3
+            font-size                   1.2rem
+
+        h3
+            border-top                  2px solid transparent
+            border-bottom               2px solid transparent
+            color                       $color5
+            text-transform              none
+            line-height                 1.2
+            padding                     10px 0
+
+        ul
+            margin                      20px 0 0 0
+
+        li
+            display                     block
+            padding                     0 20px 5px 20px
+            margin                      0 -20px 5px -20px
+            border-bottom               2px solid $color15
+
+            &:last-child
+                border                  0
+
+            a
+                color                   $color6
+
+
+
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .page-services
+        .block-services-wrapper
+            display                     inline-block
+            margin                      0 -5px
+            padding                     0 10px
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .page-services
+        .blocks-services-wrapper
+            margin-top                  50px
+            margin-bottom               -50px
+
+        .blocks-services
+            max-width                   $innerWidth
+            padding                     0
+            margin                      40px auto 20px auto
+
+        .block-services-wrapper
+            display                     inline-block
+            margin                      0
+            padding                     0 10px
+
+        .block-services
+            img
+                margin                  0 0 20px 0
+
+
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )
+//
+//     .page-services
