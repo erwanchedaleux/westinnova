@@ -2,6 +2,9 @@
 
 {% block global_content %}
     <div id="main" class="{{ (record is defined and record.slug is not empty ? 'page-' ~ record.slug : '') }}">
+        {%- block cookies %}
+            {% include 'partials/_cookies.twig' %}
+        {% endblock cookies %}
         <div class="site-wrapper">
             {% block header %}
                 {% include 'partials/_header.twig' %}

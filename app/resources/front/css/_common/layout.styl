@@ -64,6 +64,7 @@ body
         &:after
             content                     ""
             position                    absolute
+            z-index                     1
             top                         50px
             left                        0
             width                       100%
@@ -85,6 +86,12 @@ body
     .js-nav-mobile-opened
         #main
             transform                   translateX(-50%)
+
+            &:after
+                top                     75px
+
+            .js-nav-mobile-opened
+                overflow-y              hidden
 
 
 /* Mediaqueries Desktop ( >= 960px) */

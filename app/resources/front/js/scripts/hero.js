@@ -23,23 +23,23 @@ module.exports = ( function ( $ ) {
         /* eslint-disable */
 
         // min and max radius, radius threshold and percentage of filled circles
-    var radMin = 5,
-      radMax = 125,
-      filledCircle = 60, //percentage of filled circles
+    var radMin = 59,
+      radMax = 60,
+      filledCircle = 100, //percentage of filled circles
       concentricCircle = 30, //percentage of concentric circles
       radThreshold = 25; //IFF special, over this radius concentric, otherwise filled
 
     //min and max speed to move
     var speedMin = 0.3,
-      speedMax = 2.5;
+      speedMax = 1;
 
     //max reachable opacity for every circle and blur effect
-    var maxOpacity = 0.3;
+    var maxOpacity = 0.1;
 
     //default palette choice
-    var colors = ['52,168,83', '117,95,147', '199,108,23', '194,62,55', '0,172,212', '120,120,120'],
-      bgColors = ['52,168,83', '117,95,147', '199,108,23', '194,62,55', '0,172,212', '120,120,120'],
-      circleBorder = 10,
+    var colors = ['17,185,255', '110,212,255', '57,57,59'],
+      bgColors = ['17,185,255', '110,212,255', '57,57,59'],
+      circleBorder = 60,
       backgroundLine = bgColors[0];
     var backgroundMlt = 0.85;
 
@@ -48,7 +48,7 @@ module.exports = ( function ( $ ) {
       lineBorder = 2.5;
 
     //most importantly: number of overall circles and arrays containing them
-    var maxCircles = 12,
+    var maxCircles = 4,
       points = [],
       pointsBack = [];
 

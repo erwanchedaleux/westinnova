@@ -2,12 +2,13 @@
 module.exports = ( function ( $ ) {
 
     function Header( $body, $header ) {
-        var $btnNavMobile, $siteContent,
+        var $main, $btnNavMobile, $siteContent,
             prevTop, headerHeight,
             OPENED_NAV_CLS, STICKY_NAV_CLS;
 
         $btnNavMobile                   = $header.find( '.snm-btn' );
         $siteContent                    = $( '.site-wrapper' ).children().not( '.site-header' );
+        $main                           = $( '#main' );
 
         prevTop                         = 0;
         headerHeight                    = parseInt( $header.outerHeight(), 10 );
@@ -60,6 +61,22 @@ module.exports = ( function ( $ ) {
         }
 
         /**
+         * Close mobile navigation instead body css class
+         * @return {void}
+         */
+        function closeMobileNav( e ) {
+            var targetId, targetClass;
+
+            targetId                    = e.target.id;
+            targetClass                 = $( e.target );
+
+            if ( $body.hasClass( OPENED_NAV_CLS ) && ( targetId === 'main' || targetClass.hasClass( 'sn-lnk' ) ) ) {
+                $body.removeClass( OPENED_NAV_CLS );
+            }
+
+        }
+
+        /**
          * Prevent the normal behavior of the click on the navigation links to close the mobile menu
          * @return {void}
          */
@@ -101,7 +118,9 @@ module.exports = ( function ( $ ) {
         $( window ).scroll( scrollHandler );
         $( window ).resize( resizehandler );
         $btnNavMobile.on( 'click', toggleMobileNav );
+        $main.on( 'click', closeMobileNav );
         $header.on( 'click', '.sn-lnk[href!="#"]', navigationHandler );
+        $( '.sn-lnk.scroll-to' ).on( 'click', closeMobileNav );
 
     }
 

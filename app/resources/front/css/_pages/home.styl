@@ -280,14 +280,6 @@
         padding                         40px 0
         margin-bottom                   20px
 
-        &:hover
-            .mod-panel-gmap-img
-                transform               translate(-50%, -50%) scale(1.05)
-
-            .mod-panel-global-content
-                transform               translate(-50%, -50%) scale(0.95)
-                opacity                 0.9
-
         .mod-panel-gmap
             position                    absolute
             top                         0
@@ -302,6 +294,11 @@
             overflow                    hidden
             width                       100%
             height                      @width
+
+            picture
+                display                 block
+                width                   100%
+                height                  @width
 
         .mod-panel-gmap-img
             width                       100%
@@ -426,6 +423,7 @@
             width                       100%
 
             .mod-panel
+                position                relative
                 display                 table-cell
                 width                   50%
 
@@ -436,15 +434,27 @@
                 padding                 30px
 
         .mod-panel-home-gmap
+            .mod-panel-gmap
+                height                  611px
+
             .mod-panel-global-content
-                padding                     40px
+                padding                 40px
 
                 .city
-                    font-size               2.3rem
+                    font-size           2.3rem
 
                 .address
                 .phone
-                    font-size               1.6rem
+                    font-size           1.6rem
+
+
+            &:hover
+                .mod-panel-gmap-img
+                    transform               translate(-50%, -50%) scale(1.05)
+
+                .mod-panel-global-content
+                    transform               translate(-50%, -50%) scale(0.95)
+                    opacity                 0.9
 
 
 /* Mediaqueries Large ( >= 1400px) */

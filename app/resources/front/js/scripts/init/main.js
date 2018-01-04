@@ -2,20 +2,27 @@
 module.exports = ( function ( $ ) {
 
     function init() {
-        var Header, Form, ScrollTo, Hero,
-            $body, $header, $forms, $scrollsTo, $heroEffect;
+        var Cookies, Header, Form, ScrollTo, Hero,
+            $body, $cookies, $header, $forms, $scrollsTo, $heroEffect;
 
+        Cookies                                 = require( '../cookies.js' );
         Header                                  = require( '../header.js' );
         Form                                    = require( '../form.js' );
         ScrollTo                                = require( '../scroll-to.js' );
         Hero                                    = require( '../hero.js' );
 
         $body                                   = $( document.body );
+        $cookies                                = $( '.site-cookies' );
         $header                                 = $( '.site-header' );
         $forms                                  = $( '.boltform form' );
         $scrollsTo                              = $( '.scroll-to' );
         $heroEffect                             = $( '.hero-effect' );
 
+
+        if ( $cookies.length ) {
+            new Cookies( $cookies );
+
+        }
 
         if ( $header.length ) {
             new Header( $body, $header );
