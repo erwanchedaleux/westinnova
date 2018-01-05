@@ -10,8 +10,8 @@
     {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '' )) %}
     {%- set meta_keywords = config.get('general/meta_keywords') %}
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
-    {%- set twitter_image = (record.image is defined ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
-    {%- set og_image = (record.image is defined ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
+    {%- set twitter_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
+    {%- set og_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
     {%- set current_url = canonical() %}
     {%- set site_logo = 'logo-westinnova' %}
 
@@ -73,6 +73,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="cleartype" content="on">
 
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('/sitemap.xml', 'theme', true, version) }}" />
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/media/img/apple-icon-57x57.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/media/img/apple-icon-60x60.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/media/img/apple-icon-72x72.png', 'theme', true, version) }}">

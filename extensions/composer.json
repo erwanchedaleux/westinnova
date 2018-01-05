@@ -29,6 +29,8 @@
     },
     "require": {
         "bolt/boltforms": "^4.1",
+        "bolt/robots": "^1.0",
+        "bolt/sitemap": "^2.2",
         "hellonico/minify-html": "^0.1.2"
     },
     "scripts": {

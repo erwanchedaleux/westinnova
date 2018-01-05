@@ -63,6 +63,8 @@ Install procedure
   * Extensions installed :
     * boltforms (custom forms)
     * minify-html (html minifier when debug mode is at false)
+    * Sitemap
+    * Robots.txt
 2. Front
   * Place to `/app/resources/front` on your terminal
   * After install and configure nodeJS and npm, run the following commands :
