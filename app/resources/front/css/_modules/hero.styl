@@ -2,7 +2,7 @@
 
 .mod-hero
     position                            relative
-    height                              400px
+    height                              calc( 100vh - 50px )
     overflow                            hidden
 
 .mod-hero-background
@@ -36,8 +36,8 @@
 
 .mod-hero-img
     display                             block
-    width                               100%
-    height                              @width
+    min-width                           420px
+    max-width                           none
     translate-middle()
 
 .mod-hero-content
@@ -133,7 +133,11 @@
 
 
 /* Mediaqueries Tablet and Desktop ( >= 640px) */
-// @media all and ( min-width: $smallScreenContentMaxWidth )
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .mod-hero
+        height                          calc( 100vh - 75px )
+
 
 /* Mediaqueries Desktop ( >= 960px) */
 @media all and ( min-width: $mediumScreenContentMaxWidth )
@@ -143,6 +147,8 @@
 
     .mod-hero-img
         min-width                       1600px
+        width                           100%
+        height                          auto
 
     .mod-hero-content
         max-width                       $mediumScreenContentMaxWidth

@@ -239,7 +239,7 @@ module.exports = function( gulp, pkg, config ) {
                             // "test/img/crossorigin",
                             // "test/ligatures",
                             // "textarea/maxlength",
-                            // "touchevents",
+                            "touchevents",
                             // "typed-arrays",
                             // "unicode",
                             // "unicode-range",

@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div class="inner">
         <div class="sf-copyright">
-            <span class="sf-text">© {{ ("now"|date("Y") == "2017" ? '' : "now"|date("Y") ~ " - ") }}{{ "now"|date("Y") }}</span>
+            <span class="sf-text">© {{ ("now"|date("Y") == "2018" ? '' : "2018 - ") }}{{ "now"|date("Y") }}</span>
              <a href="{{ url('homepage') }}" class="sf-lnk">{{ url('homepage') }}</a>
              | <a href="{{ path('contentlink', {'contenttypeslug': 'page', 'slug': 'informations-legales'}) }}" class="sf-lnk">Informations légales</a>
              | <a href="{{ path('contentlink', {'contenttypeslug': 'page', 'slug': 'conditions-generales-de-ventes'}) }}" class="sf-lnk">Conditions générales de ventes</a>

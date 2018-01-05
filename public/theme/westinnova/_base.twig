@@ -7,8 +7,11 @@
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
     {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : (meta_title_override is defined ? meta_title_override|striptags : '')) %}
-    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '')) %}
+    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '' )) %}
+    {%- set meta_keywords = config.get('general/meta_keywords') %}
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
+    {%- set twitter_image = (record.image is defined ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
+    {%- set og_image = (record.image is defined ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
     {%- set current_url = canonical() %}
     {%- set site_logo = 'logo-westinnova' %}
 
@@ -36,6 +39,7 @@
     <title>{% block title %}{{ meta_title }}{% endblock %}</title>
     <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
     <meta name="description" content="{{ meta_description }}">
+    <meta name="keywords" content="{{ meta_keywords }}">
     <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 or maintenance is defined and maintenance ? 'noindex, nofollow' : config.get('general/robots')) }}">
 
     {# OPENGRAPH #}
@@ -46,7 +50,7 @@
     <meta property="og:url" content="{{ current_url }}">
     <meta property="og:title" content="{{ meta_title }}">
     <meta property="og:description" content="{{ meta_description }}">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="{{ og_image }}">
     {% endblock opengraph_meta %}
 
     {# TWITTER #}
@@ -57,7 +61,7 @@
     <meta name="twitter:url" content="{{ current_url }}">
     <meta name="twitter:title" content="{{ meta_title }}">
     <meta name="twitter:description" content="{{ meta_description }}">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:image" content="{{ twitter_image }}">
     {% endif %}
     {% endblock twitter_meta %}
 

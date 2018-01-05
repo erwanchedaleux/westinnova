@@ -2,11 +2,12 @@
 module.exports = ( function ( $ ) {
 
     function init() {
-        var Cookies, Header, Form, ScrollTo, Hero,
-            $body, $cookies, $header, $forms, $scrollsTo, $heroEffect;
+        var Cookies, Header, Expertise, Form, ScrollTo, Hero,
+            $body, $cookies, $header, $expertise, $forms, $scrollsTo, $heroEffect;
 
         Cookies                                 = require( '../cookies.js' );
         Header                                  = require( '../header.js' );
+        Expertise                               = require( '../expertise.js' );
         Form                                    = require( '../form.js' );
         ScrollTo                                = require( '../scroll-to.js' );
         Hero                                    = require( '../hero.js' );
@@ -14,6 +15,7 @@ module.exports = ( function ( $ ) {
         $body                                   = $( document.body );
         $cookies                                = $( '.site-cookies' );
         $header                                 = $( '.site-header' );
+        $expertise                              = $( '.mod-panel-home-expertise' );
         $forms                                  = $( '.boltform form' );
         $scrollsTo                              = $( '.scroll-to' );
         $heroEffect                             = $( '.hero-effect' );
@@ -26,6 +28,11 @@ module.exports = ( function ( $ ) {
 
         if ( $header.length ) {
             new Header( $body, $header );
+
+        }
+
+        if ( $expertise.length ) {
+            new Expertise( $expertise );
 
         }
 

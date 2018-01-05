@@ -12,6 +12,7 @@ module.exports = ( function ( $ ) {
         COOKIES_VALUE                   = true;
 
         if ( !$.cookie( COOKIES_NAME ) || $.cookie( COOKIES_NAME ) === false ) {
+            $cookies.prependTo( '#main' );
             $cookies.addClass( COOKIES_ACTIVE_CLS );
         }
 

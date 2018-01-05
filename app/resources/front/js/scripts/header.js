@@ -2,12 +2,13 @@
 module.exports = ( function ( $ ) {
 
     function Header( $body, $header ) {
-        var $main, $btnNavMobile, $siteContent,
+        var $main, $btnNavMobile, $siteContent, $preloader,
             prevTop, headerHeight,
             OPENED_NAV_CLS, STICKY_NAV_CLS;
 
         $btnNavMobile                   = $header.find( '.snm-btn' );
         $siteContent                    = $( '.site-wrapper' ).children().not( '.site-header' );
+        $preloader                      = $( '.site-preloader' );
         $main                           = $( '#main' );
 
         prevTop                         = 0;
@@ -97,6 +98,10 @@ module.exports = ( function ( $ ) {
                 $siteContent.animate( {
                     'opacity':          0
                 } );
+
+                if ( $preloader.length ) {
+                    $preloader.addClass( 'active' );
+                }
 
                 $( location ).attr( 'href', currentLnkHref );
 

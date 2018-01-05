@@ -1,0 +1,75 @@
+/***************************************/
+
+.site-preloader
+    display                             none
+    margin                              30px auto
+    width                               30px
+    height                              @width
+    z-index                             100
+    translate-middle()
+
+    &.active
+        display                         block
+
+    &:after
+        content                         " "
+        display                         inline-block
+        width                           30px
+        height                          30px
+        border-radius                   30px
+        opacity                         0.4
+        background                      $color3
+        animation                       preloaderCenter 2s infinite linear
+
+    span
+        display                         block
+        position                        absolute
+        opacity                         0.8
+        border                          3px solid #69D2E7
+        animation                       preloaderRing 1s infinite linear
+        box-sizing                      content-box
+
+        &:nth-child(1)
+            top                         -9px
+            left                        -9px
+            width                       42px
+            height                      42px
+            border-radius               42px
+            animation-delay             0.5s
+
+        &:nth-child(2)
+            top                         -18px
+            left                        -18px
+            width                       60px
+            height                      60px
+            border-radius               60px
+            animation-delay             1s
+
+        &:nth-child(3)
+            top                         -27px
+            left                        -27px
+            width                       78px
+            height                      78px
+            border-radius               78px
+            animation-delay             1.5s
+
+
+@keyframes preloaderCenter
+  50%
+      opacity                           1
+      background                        $color4
+
+
+@keyframes preloaderRing
+  50%
+      opacity                           0
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+// @media all and ( min-width: $mediumScreenContentMaxWidth )
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )
