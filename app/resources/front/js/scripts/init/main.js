@@ -3,7 +3,7 @@ module.exports = ( function ( $ ) {
 
     function init() {
         var Cookies, Header, Expertise, Form, ScrollTo, Hero,
-            $body, $cookies, $header, $expertise, $forms, $scrollsTo, $heroEffect;
+            $body, $cookies, $header, $expertise, $forms, $scrollsTo, $heroEffect, $messageForm;
 
         Cookies                                 = require( '../cookies.js' );
         Header                                  = require( '../header.js' );
@@ -19,6 +19,7 @@ module.exports = ( function ( $ ) {
         $forms                                  = $( '.boltform form' );
         $scrollsTo                              = $( '.scroll-to' );
         $heroEffect                             = $( '.hero-effect' );
+        $messageForm                            = $( '.boltform-message' );
 
 
         if ( $cookies.length ) {
@@ -53,6 +54,10 @@ module.exports = ( function ( $ ) {
                 new ScrollTo( $( scrollTo ) );
             } );
 
+        }
+
+        if ( $messageForm.length ) {
+            $( 'html, body' ).animate( { scrollTop: $messageForm.offset().top - 150 }, 750 );
         }
 
         if( typeof( Waves ) !== 'undefined' ){
