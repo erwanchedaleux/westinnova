@@ -18,13 +18,13 @@ Specifications
     * Change metas robots in `/app/config/config.yml` file _(line 16)_
     * Change mail options password variable of mail client in
     `/app/config/config.yml` file _(line 348)_
-    * In `/app/resources/front/package.json` file, replace `socle` namespace by
-    the good values of your new theme
+    * In `/app/resources/front/package.json` file, replace `{project}` namespace
+    by the good values of your new theme
     * In `/app/resources/front/config.json` file, change the theme namespace,
-    replace `socle` by the name of your new theme
-    * In `/public/theme/westinnova/system/config.js` file, change the theme namespace,
-    replace `socle` by the name of your new theme
-    * For the test of sending emails, please follow this link : `https://github.com/bolt/boltforms/blob/master/doc/email.md`
+    replace `{project}` by the name of your new theme
+    * In `/public/theme/{project}/system/config.js` file, change the theme
+    namespace, replace `{project}` by the name of your new theme
+    * For the test of sending emails, please follow this link : `https://github.com/bolt/boltforms/blob/master/doc/email.md` or `https://bolt.github.io/boltforms/email.html`
 
 
 Instances
@@ -51,32 +51,36 @@ Install procedure
 1. Ampps
   * In Ampps web server, You should be manage domains :
     * In http://localhost/ampps/, go to `Add domain` and type the following
-    commands in the corresponding fields:
-      * Domain : `westinnova.dev`
-      * Domain Path : `/Users/{username}/Documents/{workspace}/westinnova/public`
-1. Bolt
+      commands in the corresponding fields:
+      * Domain : `dev.{project}`
+      * Domain Path : `/Users/{username}/Documents/{workspace}/{project}/public`
+2. Bolt
   * To start the install just run the following in the root folder.
     * `composer require bolt/bolt ^3.4`
-  * After the packages have downloaded, you can go to http://westinnova.dev and
-  follow the instructions
+  * After the packages have downloaded, you can go to http://dev.{project} and
+    follow the instructions
   * More informations at http://docs.bolt.cm/
   * Extensions installed :
-    * boltforms (custom forms)
-    * minify-html (html minifier when debug mode is at false)
-    * Sitemap
-    * Robots.txt
-2. Front
+  * boltforms (custom forms)
+  * minify-html (html minifier when debug mode is at false)
+  * Sitemap
+  * Robots.txt
+3. Bolt Update
+  * To run Bolt upgrading, Go to `composer.json` file and change the Bolt CM version.
+  * Then, in your terminal, just copy the following command on the root folder :
+    * `composer update`
+4. Front
   * Place to `/app/resources/front` on your terminal
   * After install and configure nodeJS and npm, run the following commands :
     * `npm install` will install the packages listed in `package.json` file
     * `gulp develop` to run project in debug mode
     * `gulp img-optimization` to rebuild images optimization
     * `gulp releasePatch` to run project in production mode and release project
-    with patch modification version
+      with patch modification version
     * `gulp releaseMinor` to run project in production mode and release project
-    with minor modification version
+      with minor modification version
     * `gulp releaseMajor` to run project in production mode and release project
-    with major modification version
+      with major modification version
 
 
 Deploy procedure

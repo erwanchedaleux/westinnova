@@ -2,54 +2,49 @@
 <html lang="{{ htmllang() }}" class="no-js">
 <head>
     {%- set debug = config.get('general/debug') %}
-    {% set dev_mode = ('dev.westinnova' in canonical() ? 'true' : 'false') %}
+    {%- set dev_mode = ('dev.' ~ config.get('general/domain') in canonical() ? 'true' : 'false') %}
     {%- set maintenance = config.get('general/maintenance_mode') %}
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
-    {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : (meta_title_override is defined ? meta_title_override|striptags : '')) %}
-    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '' )) %}
+    {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags : (seo.title() is defined ? seo.title() : '')) %}
+    {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (seo.description() is defined ? seo.description() : '')) %}
     {%- set meta_keywords = config.get('general/meta_keywords') %}
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
     {%- set twitter_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
     {%- set og_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
     {%- set current_url = canonical() %}
     {%- set site_logo = 'logo-westinnova' %}
-
     {%- if not debug and dev_mode == 'false' -%}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111461450-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-111461450-1');
-    </script>
+        {# Googke Tag Manager #}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111461450-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-111461450-1');
+        </script>
     {%- endif -%}
 
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    {%- if meta_title is not empty -%}
-        {% set meta_title = meta_title ~  ' | ' ~ site_title %}
-    {%- elseif record.title is defined -%}
-        {% set meta_title =  record.title|striptags ~ ' | ' ~ site_title %}
-    {%- else -%}
-        {% set meta_title = site_title ~  ' | ' ~ config.get('general/payoff') %}
-    {%- endif %}
-
-    <title>{% block title %}{{ meta_title }}{% endblock %}</title>
-    <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
-    <meta name="description" content="{{ meta_description }}">
+    <title>{{ meta_title|raw }}</title>
+    {%- if not debug and dev_mode == 'false' -%}
+        {# Meta Google site verification #}
+        <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
+    {%- endif -%}
+    <meta name="description" content="{{ meta_description|raw }}">
     <meta name="keywords" content="{{ meta_keywords }}">
-    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 or maintenance is defined and maintenance ? 'noindex, nofollow' : config.get('general/robots')) }}">
+    <meta name="robots" content="{{ (seo.robots is not defined or maintenance ? 'noindex, nofollow' : seo.robots) }}">
 
     {# OPENGRAPH #}
     {%- block opengraph_meta -%}
-    <meta property="og:site_name" content="{{ site_title }}">
+    <meta property="og:site_name" content="{{ site_title|raw }}">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ current_url }}">
     <meta property="og:title" content="{{ meta_title }}">
-    <meta property="og:description" content="{{ meta_description }}">
+    <meta property="og:description" content="{{ meta_description|raw }}">
     <meta property="og:image" content="{{ og_image }}">
     {% endblock opengraph_meta %}
 
@@ -60,10 +55,18 @@
     <meta name="twitter:site" content="@{{ twitter_name }}">
     <meta name="twitter:url" content="{{ current_url }}">
     <meta name="twitter:title" content="{{ meta_title }}">
-    <meta name="twitter:description" content="{{ meta_description }}">
+    <meta name="twitter:description" content="{{ meta_description|raw }}">
     <meta name="twitter:image" content="{{ twitter_image }}">
     {% endif %}
     {% endblock twitter_meta %}
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="cleartype" content="on">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -159,8 +162,5 @@
 {%- block body %}
 {% block global_content '' %}
 {% endblock body %}
-{%- if not debug -%}
-    {# Code Google Anlytics #}
-{%- endif -%}
 </body>
 </html>

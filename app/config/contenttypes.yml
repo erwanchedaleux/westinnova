@@ -51,15 +51,9 @@ pages:
         image_hero_arrow_link:
             type: text
             label: "Cible de l'ancre (id)"
-        meta_title:
-            group: SEO
-            label: Titre SEO
-            type: text
-            uses: [ title ]
-        meta_description:
-            label: Description SEO
-            type: textarea
-            height: 100px
+        seo:
+            type: seo
+            group: "SEO"
     taxonomy: [ groups ]
     recordsperpage: 100
 
