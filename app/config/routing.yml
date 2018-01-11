@@ -109,6 +109,22 @@ sitemapXml:
 #         slug: about
 #     recordslug: page/about
 
+aboutbinding:
+    path: /a-propos
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+        slug: a-propos
+    recordslug: page/a-propos
+
+servicesbinding:
+    path: /services
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+        slug: services
+    recordslug: page/services
+
 
 # Supported internal defaults are:
 #  _controller   the controller class::method to be called
