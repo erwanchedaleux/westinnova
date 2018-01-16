@@ -1,3 +1,8 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^westinnova.com$
+RewriteRule ^(.*) http://www.westinnova.com/$1 [QSA,L,R=301]
+
 # Set the default handler.
 DirectoryIndex index.php index.html index.htm
 
@@ -62,7 +67,6 @@ Options -Indexes
 
 
 <IfModule mod_headers.c>
-	#Header set Content-Security-Policy "script-src 'self' https://www.google.com"
 	Header always set X-FRAME-OPTIONS "DENY"
 	Header always set X-XSS-Protection "1; mode=block"
 	Header always set X-Content-Type-Options "nosniff"

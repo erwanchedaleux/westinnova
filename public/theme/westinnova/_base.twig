@@ -1,158 +1,161 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}" class="no-js">
-<head>
-    {%- set debug = config.get('general/debug') %}
-    {%- set dev_mode = ('dev.' ~ config.get('general/domain') in canonical() ? 'true' : 'false') %}
-    {%- set maintenance = config.get('general/maintenance_mode') %}
-    {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
-    {%- set site_title = config.get('general/sitename') %}
-    {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags : (seo.title() is defined ? seo.title() : '')) %}
-    {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (seo.description() is defined ? seo.description() : '')) %}
-    {%- set meta_keywords = config.get('general/meta_keywords') %}
-    {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
-    {%- set twitter_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
-    {%- set og_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
-    {%- set current_url = canonical() %}
-    {%- set site_logo = 'logo-westinnova' %}
-    {%- if not debug and dev_mode == 'false' -%}
-        {# Googke Tag Manager #}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111461450-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-111461450-1');
-        </script>
-    {%- endif -%}
+    <head>
+        {%- set debug = config.get('general/debug') %}
+        {%- set dev_mode = ('dev.' ~ config.get('general/domain') in canonical() ? 'true' : 'false') %}
+        {%- set maintenance = config.get('general/maintenance_mode') %}
+        {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
+        {%- set site_title = config.get('general/sitename') %}
+        {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags : (seo.title() is defined ? seo.title() : '')) %}
+        {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (seo.description() is defined ? seo.description() : '')) %}
+        {%- set meta_keywords = config.get('general/meta_keywords') %}
+        {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
+        {%- set twitter_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
+        {%- set og_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
+        {%- set current_url = canonical() %}
+        {%- set site_logo = 'logo-westinnova' %}
 
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {%- if not debug and dev_mode == 'false' -%}
+            {# Start Googke Tag Manager #}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111461450-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-111461450-1');
+            </script>
+            {# End Googke Tag Manager #}
+        {%- endif -%}
 
-    <title>{{ meta_title|raw }}</title>
-    {%- if not debug and dev_mode == 'false' -%}
-        {# Meta Google site verification #}
-        <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
-    {%- endif -%}
-    <meta name="description" content="{{ meta_description|raw }}">
-    <meta name="keywords" content="{{ meta_keywords }}">
-    <meta name="robots" content="{{ (seo.robots is not defined or maintenance ? 'noindex, nofollow' : seo.robots) }}">
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    {# OPENGRAPH #}
-    {%- block opengraph_meta -%}
-    <meta property="og:site_name" content="{{ site_title|raw }}">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ current_url }}">
-    <meta property="og:title" content="{{ meta_title }}">
-    <meta property="og:description" content="{{ meta_description|raw }}">
-    <meta property="og:image" content="{{ og_image }}">
-    {% endblock opengraph_meta %}
+        <title>{{ meta_title|raw }}</title>
+        {%- if not debug and dev_mode == 'false' -%}
+            {# Start Meta Google site verification #}
+            <meta name="google-site-verification" content="Km4FoUKnJphiOZ5rcoOU4-E0etVHJnUARq3CZii8E5U" />
+            {# End Meta Google site verification #}
+        {%- endif -%}
+        <meta name="description" content="{{ meta_description|raw }}">
+        <meta name="keywords" content="{{ meta_keywords }}">
+        <meta name="robots" content="{{ (seo.robots is not defined or maintenance ? 'noindex, nofollow' : seo.robots) }}">
 
-    {# TWITTER #}
-    {%- block twitter_meta -%}
-    {%- if twitter_name is not empty -%}
-    <meta name="twitter:card" content="sharing_twitter_card">
-    <meta name="twitter:site" content="@{{ twitter_name }}">
-    <meta name="twitter:url" content="{{ current_url }}">
-    <meta name="twitter:title" content="{{ meta_title }}">
-    <meta name="twitter:description" content="{{ meta_description|raw }}">
-    <meta name="twitter:image" content="{{ twitter_image }}">
-    {% endif %}
-    {% endblock twitter_meta %}
+        {# OPENGRAPH #}
+        {%- block opengraph_meta -%}
+            <meta property="og:site_name" content="{{ site_title|raw }}">
+            <meta property="og:locale" content="fr_FR">
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{ current_url }}">
+            <meta property="og:title" content="{{ meta_title }}">
+            <meta property="og:description" content="{{ meta_description|raw }}">
+            <meta property="og:image" content="{{ og_image }}">
+        {% endblock opengraph_meta %}
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="address=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="cleartype" content="on">
+        {# TWITTER #}
+        {%- block twitter_meta -%}
+            {%- if twitter_name is not empty -%}
+                <meta name="twitter:card" content="sharing_twitter_card">
+                <meta name="twitter:site" content="@{{ twitter_name }}">
+                <meta name="twitter:url" content="{{ current_url }}">
+                <meta name="twitter:title" content="{{ meta_title }}">
+                <meta name="twitter:description" content="{{ meta_description|raw }}">
+                <meta name="twitter:image" content="{{ twitter_image }}">
+            {% endif %}
+        {% endblock twitter_meta %}
 
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('/sitemap.xml', 'theme', true, version) }}" />
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/media/img/apple-icon-57x57.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/media/img/apple-icon-60x60.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/media/img/apple-icon-72x72.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/media/img/apple-icon-76x76.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/media/img/apple-icon-114x114.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/media/img/apple-icon-120x120.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/media/img/apple-icon-144x144.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/media/img/apple-icon-152x152.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/img/apple-icon-180x180.png', 'theme', true, version) }}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/media/img/android-icon-192x192.png', 'theme', true, version) }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/media/img/favicon-32x32.png', 'theme', true, version) }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/media/img/favicon-96x96.png', 'theme', true, version) }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/img/favicon-16x16.png', 'theme', true, version) }}">
-    <link rel="manifest" href="{{ asset('system/manifest.json', 'theme', true, version) }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/media/img/ms-icon-144x144.png', 'theme', true, version) }}">
-    <meta name="msapplication-tap-highlight" content="no"/>
-    <meta name="theme-color" content="#ffffff">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!--[if IEMobile]><meta http-equiv="cleartype" content="on" /><![endif]-->
 
-    {# OLD BROWSER REDIRECT #}
-    {%- block old_browser -%}
-    <script>(function(){var a=document.documentElement;a&&(a.className=a.className.replace((new RegExp('(^|\\s)no-js(\\s|$)')),'$1js$2'));}());{% if debug %}var $$DEBUG$$=true;{% endif %}window.OLD_BROWSER_URL='page/old-browser';</script>
-    {% endblock old_browser %}
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('/sitemap.xml', 'theme', true, version) }}" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/media/img/apple-icon-57x57.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/media/img/apple-icon-60x60.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/media/img/apple-icon-72x72.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/media/img/apple-icon-76x76.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/media/img/apple-icon-114x114.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/media/img/apple-icon-120x120.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/media/img/apple-icon-144x144.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/media/img/apple-icon-152x152.png', 'theme', true, version) }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/img/apple-icon-180x180.png', 'theme', true, version) }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/media/img/android-icon-192x192.png', 'theme', true, version) }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/media/img/favicon-32x32.png', 'theme', true, version) }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/media/img/favicon-96x96.png', 'theme', true, version) }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/img/favicon-16x16.png', 'theme', true, version) }}">
+        <link rel="manifest" href="{{ asset('system/manifest.json', 'theme', true, version) }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ asset('assets/media/img/ms-icon-144x144.png', 'theme', true, version) }}">
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="theme-color" content="#ffffff">
 
-    {# INLINE STYLESHEETS #}
-    {%- block inline_stylesheets -%}
-    {%- if debug -%}
-    <link rel="stylesheet" href="{{ asset('system/inlinecss.css', 'theme', true, version) }}">
-    {%- else -%}
-    <style>{% include '/system/inlinecss.css' %}</style>
-    {% endif %}
-    {% endblock inline_stylesheets %}
+        {# OLD BROWSER REDIRECT #}
+        {%- block old_browser -%}
+            <script>(function(){var a=document.documentElement;a&&(a.className=a.className.replace((new RegExp('(^|\\s)no-js(\\s|$)')),'$1js$2'));}());{% if debug %}var $$DEBUG$$=true;{% endif %}window.OLD_BROWSER_URL='page/old-browser';</script>
+        {% endblock old_browser %}
 
-    {# STYLESHEETS #}
-    {%- block stylesheets -%}
-    {%- if debug -%}
-    <link rel="stylesheet" href="{{ asset('assets/css/fonts.css', 'theme', true, version) }}">
-    {% endif -%}
-    <link rel="preload" href="{{ asset('assets/css/styles.css', 'theme', true, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/styles.css', 'theme', true, version) }}"></noscript>
-    <link rel="preload" href="{{ asset('assets/css/images.css', 'theme', true, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/images.css', 'theme', true, version) }}"></noscript>
-    {% endblock stylesheets %}
+        {# INLINE STYLESHEETS #}
+        {%- block inline_stylesheets -%}
+            {%- if debug -%}
+                <link rel="stylesheet" href="{{ asset('system/inlinecss.css', 'theme', true, version) }}">
+            {%- else -%}
+                <style>{% include '/system/inlinecss.css' %}</style>
+            {% endif %}
+        {% endblock inline_stylesheets %}
 
-    {# INLINE JS #}
-    {%- block inline_js -%}
-    <script>
-    {%- if debug -%}
-        {% include 'system/inlineJS-dev.js' %}
-    {%- else -%}
-        {% include 'system/inlineJS-prod.js' %}
-    {% endif %}
-    </script>
-    {% endblock inline_js -%}
+        {# STYLESHEETS #}
+        {%- block stylesheets -%}
+            {%- if debug -%}
+                <link rel="stylesheet" href="{{ asset('assets/css/fonts.css', 'theme', true, version) }}">
+            {% endif -%}
+            <link rel="preload" href="{{ asset('assets/css/styles.css', 'theme', true, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
+            <noscript><link rel="stylesheet" href="{{ asset('assets/css/styles.css', 'theme', true, version) }}"></noscript>
+            <link rel="preload" href="{{ asset('assets/css/images.css', 'theme', true, version) }}" as="style" onload="this.rel='stylesheet';this.onload=''">
+            <noscript><link rel="stylesheet" href="{{ asset('assets/css/images.css', 'theme', true, version) }}"></noscript>
+        {% endblock stylesheets %}
 
-    {# FONTS LOADING #}
-    {%- block fonts -%}
-    {%- if not debug -%}
-    <script>
-    window.siteStarter.getFile('{{ asset('assets/css/fonts.css', 'theme', true, version) }}');
-    </script>
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/fonts.css', 'theme', true, version) }}"></noscript>
-    {% endif %}
-    {% endblock fonts %}
+        {# INLINE JS #}
+        {%- block inline_js -%}
+            <script>
+                {%- if debug -%}
+                    {% include 'system/inlineJS-dev.js' %}
+                {%- else -%}
+                    {% include 'system/inlineJS-prod.js' %}
+                {% endif %}
+            </script>
+        {% endblock inline_js -%}
 
-    {# MAIN JAVACRIPTS #}
-    {%- block main_javascripts -%}
-    <script defer src="{{ asset('system/config.js', 'theme', true, version) }}"></script>
-    <script defer src="{{ asset('assets/js/main.js', 'theme', true, version) }}"></script>
-    {% endblock main_javascripts %}
+        {# FONTS LOADING #}
+        {%- block fonts -%}
+            {%- if not debug -%}
+                <script>
+                    window.siteStarter.getFile('{{ asset('assets/css/fonts.css', 'theme', true, version) }}');
+                </script>
+                <noscript><link rel="stylesheet" href="{{ asset('assets/css/fonts.css', 'theme', true, version) }}"></noscript>
+            {% endif %}
+        {% endblock fonts %}
 
-    {# HEAD JAVASCRIPTS #}
-    {%- block head_javascripts -%}
-    {%- if debug -%}
-    <script defer src="{{ asset('assets/js/polyfill/picturefill.js', 'theme', true, version) }}"></script>
-    <script defer src="{{ asset('assets/js/lib.js', 'theme', true, version) }}"></script>
-    <script defer src="{{ asset('assets/js/scripts.js', 'theme', true, version) }}"></script>
-    {% endif %}
-    {% block extra_head_javascripts '' %}
-    {% endblock head_javascripts %}
-</head>
-<body>
-{%- block body %}
-{% block global_content '' %}
-{% endblock body %}
-</body>
+        {# MAIN JAVACRIPTS #}
+        {%- block main_javascripts -%}
+            <script defer src="{{ asset('system/config.js', 'theme', true, version) }}"></script>
+            <script defer src="{{ asset('assets/js/main.js', 'theme', true, version) }}"></script>
+        {% endblock main_javascripts %}
+
+        {# HEAD JAVASCRIPTS #}
+        {%- block head_javascripts -%}
+            {%- if debug -%}
+                <script defer src="{{ asset('assets/js/polyfill/picturefill.js', 'theme', true, version) }}"></script>
+                <script defer src="{{ asset('assets/js/lib.js', 'theme', true, version) }}"></script>
+                <script defer src="{{ asset('assets/js/scripts.js', 'theme', true, version) }}"></script>
+            {% endif %}
+            {% block extra_head_javascripts '' %}
+        {% endblock head_javascripts %}
+    </head>
+    <body>
+        {%- block body %}
+            {% block global_content '' %}
+        {% endblock body %}
+    </body>
 </html>

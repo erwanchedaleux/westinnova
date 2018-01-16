@@ -2,7 +2,7 @@
     "name":                             "westinnova",
     "title":                            "Westinnova",
     "description":                      "",
-    "version":                          "0.1.7",
+    "version":                          "0.1.9",
     "homepage":                         "",
     "author": {
         "name":                         "Erwan Chedaleux",
@@ -67,6 +67,7 @@
         "jquery":                       "3.2.1",
         "jquery.cookie":                "1.4.1",
         "sumoselect":                   "3.0.3",
-        "node-waves":                   "0.7.5"
+        "node-waves":                   "0.7.5",
+        "lazysizes":                    "4.0.1"
     }
 }

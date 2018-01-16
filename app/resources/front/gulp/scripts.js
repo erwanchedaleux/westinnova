@@ -95,7 +95,8 @@ module.exports = function( gulp, pkg, config ) {
                     config.path.resources.js + 'vendor/plugins/jquery.js',
                     config.path.resources.js + 'vendor/plugins/jquery.cookie.js',
                     config.path.resources.js + 'vendor/plugins/jquery.sumoselect.js',
-                    config.path.resources.js + 'vendor/plugins/waves.js'
+                    config.path.resources.js + 'vendor/plugins/waves.js',
+                    config.path.resources.js + 'vendor/plugins/lazysizes.js'
                 ] )
                 .pipe( gulpConcat( 'lib.js' ) )
                 .pipe( header( credits.library.join( '\n *  ' ), pkg ) )
