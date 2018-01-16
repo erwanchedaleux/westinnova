@@ -28,10 +28,10 @@
                                                     <img data-srcset="{{ thumbnail(repeater_panel.image, 300, 295) ~ '?' ~ version }} 300w,
                                                                  {{ thumbnail(repeater_panel.image, 370, 364) ~ '?' ~ version }} 370w,
                                                                  {{ thumbnail(repeater_panel.image, 555, 546) ~ '?' ~ version }} 555w"
-                                                        data-sizes="auto"
+                                                         sizes="(max-width:639px) 300px, (min-width:640px) 370px"
                                                          data-src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                                          alt=""
-                                                         class="mod-panel-img lazyload">
+                                                         class="mod-panel-img lazyload" />
                                                 {% else %}
                                                     <div class="mod-panel-img-not-found"></div>
                                                 {% endif %}
@@ -78,7 +78,7 @@
                                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                       data-src="https://maps.googleapis.com/maps/api/staticmap?center=44.981950,-0.626774&zoom=14&size=640x241&scale=2&maptype=roadmap&markers=color:blue%7Clabel:W%7C44.982000,-0.626778&key=AIzaSyDhU3rwmacwMon-rtZCo5GDA4Fpe-ShFVE"
                                       alt=""
-                                      class="mod-panel-gmap-img lazyload">
+                                      class="mod-panel-gmap-img lazyload" />
                              </picture>
                         </a>
                     </div>
@@ -118,7 +118,7 @@
                             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                  data-src="{{ thumbnail(panel.image_hero, 'hero_tablet_1490') ~ '?' ~ version }}"
                                  alt=""
-                                 class="mod-panel-hero-img lazyload">
+                                 class="mod-panel-hero-img lazyload" />
                         </picture>
                         <div class="inner">
                             {% if panel.title is defined %}

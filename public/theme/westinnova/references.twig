@@ -1,0 +1,126 @@
+{% extends '_extended_base.twig' %}
+{% set categories_list = app.config.get('taxonomy/categories/options') %}
+
+{% block content %}
+
+        {# This template is used for 'listings': Generic pages that list a number of
+           records from a certain contenttype. These records are available as an array
+           called 'records'. In the for-loop below, we iterate over the records that
+           are on this page. It can be used for overview pages like 'all entries', or
+           'all records tagged with kittens'. #}
+
+        {# If used for listing a taxonomy, we add a heading.: #}
+        {% if taxonomytype is defined %}
+            <h1>
+                {{ __('general.phrase.overview-for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    {{ taxonomy.options[slug] }}
+                {% else %}
+                    {{ slug }}
+                {% endif %}
+            </h1>
+            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
+               is set to true. This way we keep 'grouping' intact in the listing. #}
+            {% if not taxonomy.has_sortorder %}
+                {# If we specified an order in config.yml, sort them here, accordingly: #}
+                {% set records = records|order(config.get('general/listing_sort')) %}
+            {% endif %}
+        {% endif %}
+
+        {# Hero #}
+        {% include 'partials/_hero.twig' with {
+            'img': '2018-01/1515143895_westinnova-home-hero.jpg',
+            'baseline': '<h1><strong>Mes références</strong> <br />dans le domaine du web, du print et du référencement</h1><h2>Retrouvez ici toutes mes expériences en matière de développement, web design et SEO</h2>'
+        } %}
+
+        <div class="site-references">
+            <div class="inner">
+                {# Categories item sort bar #}
+                <div class="sr-sortbar">
+                    <ul class="srs-list">
+                        <li class="srs-itm">
+                            <button type="button" class="btn-1 active srs-btn">
+                                Toutes les catégories
+                            </button>
+                        </li>
+                        {% for category in categories_list -%}
+                            <li class="srs-itm">
+                                <button type="button" class="btn-1 srs-btn">
+                                    {{ category }}
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% for record in records %}
+                    {# Contruct data-categories attribute #}
+                    {% set categories = '' %}
+                    {% if record.taxonomy.categories is defined %}
+                        {% for category in record.taxonomy.categories %}
+                            {% set categories = (categories ? categories ~ ', ' : '' ) ~ category %}
+                        {% endfor %}
+                    {% endif %}
+                    {# Reference element #}
+                    <div class="sr-reference" data-categories="{{ categories }}">
+                        {# Taxonomies #}
+                        {% if record.taxonomy is defined %}
+                            <div class="sr-taxonomy">
+                                {% if record.taxonomy.tags is defined %}
+                                    <div class="sr-tags">
+                                        <ul class="sr-list">
+                                            {% for route, tag in record.taxonomy.tags %}
+                                                <li class="sr-list">
+                                                    <a href="{{ route }}" title="{{ tag }}" class="sr-lnk">{{ tag }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if record.image != "" %}
+                            <div class="sr-foreground">
+                                <a href="{{ image(record.image) }}" class="srf-lnk">
+                                    <img data-srcset="{{ thumbnail(record.image, 300, 295) ~ '?' ~ version }} 300w,
+                                                 {{ thumbnail(record.image, 370, 364) ~ '?' ~ version }} 370w,
+                                                 {{ thumbnail(record.image, 555, 546) ~ '?' ~ version }} 555w"
+                                         sizes="(max-width:639px) 300px, (min-width:640px) 370px"
+                                         data-src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                         alt=""
+                                         class="srf-img lazyload" />
+                                </a>
+                            </div>
+                        {% endif %}
+                        {# Title #}
+                        <h2 class="sr-title">
+                            <a href="{{ record.link }}" title="{{ record.title }}" class="srt-lnk">
+                                {{ record.title }}
+                            </a>
+                        </h2>
+                        {# Content/Excerpt #}
+                        <div class="sr-content">
+                            <span class="src-date">
+                                {% if record.date is not empty %}
+                                    {{ record.date|date("m/Y") }}
+                                {% endif %}
+                            </span>
+                            <p class="src-excerpt">
+                                {% if record.introduction %}
+                                    {{ record.introduction }}
+                                {% elseif record.teaser %}
+                                    {{ record.teaser }}
+                                {% else %}
+                                    {{ record.excerpt(150, false, search|default('')) }}
+                                {% endif %}
+                            </p>
+                            <a href="{{ record.link }}" title="En savoir plus sur {{ record.title }}" class="src-lnk">
+                                En savoir plus
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {{ pager(template = 'partials/_pagination.twig') }}
+            </div>
+        </div>
+
+{% endblock content %}

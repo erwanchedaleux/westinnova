@@ -18,8 +18,8 @@ app/database/*.db
 
 cache/
 thumbs/
-vendor/
-!app/resources/front/js/vendor/
+#vendor/
+#!app/resources/front/js/vendor/
 
 # NPM, Gulp and Grunt stuff
 node_modules

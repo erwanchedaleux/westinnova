@@ -109,7 +109,7 @@ sitemapXml:
 #         slug: about
 #     recordslug: page/about
 
-aboutbinding:
+about:
     path: /a-propos
     defaults:
         _controller: controller.frontend:record
@@ -117,13 +117,21 @@ aboutbinding:
         slug: a-propos
     recordslug: page/a-propos
 
-servicesbinding:
+services:
     path: /services
     defaults:
         _controller: controller.frontend:record
         contenttypeslug: page
         slug: services
     recordslug: page/services
+
+references:
+    path: /references
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+        slug: references
+    recordslug: page/references
 
 
 # Supported internal defaults are:

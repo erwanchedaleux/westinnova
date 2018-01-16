@@ -1,0 +1,32 @@
+{
+    "name": "bolt/robots",
+    "description": "Simple interface to manage generated robots.txt files",
+    "type": "bolt-extension",
+    "keywords": [
+        "Google",
+        "SEO",
+        "robots.txt"
+    ],
+    "require": {
+        "bolt/bolt": "^3.0"
+    },
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Gawain Lynch",
+            "email": "gawain.lynch@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Extension\\Bolt\\Robots\\": "src"
+        }
+    },
+    "extra": {
+        "bolt-class": "Bolt\\Extension\\Bolt\\Robots\\RobotsExtension",
+        "bolt-icon": "icon-robots.txt.png",
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
+        }
+    }
+}

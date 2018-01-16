@@ -6,9 +6,11 @@ main:
       title: Retourner à la page d'accueil
       path: homepage
     - label: À propos
-      path: page/a-propos
+      path: a-propos
     - label: Services
-      path: page/services
+      path: services
+    - label: Références
+      path: references
     - label: Contact
       link: /#contact
       class: " scroll-to"

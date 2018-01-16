@@ -1,0 +1,50 @@
+{
+    "bobdenotter/seo": {
+        "name": "bobdenotter/seo",
+        "path": "vendor/bobdenotter/seo",
+        "webPath": "extensions/vendor/bobdenotter/seo",
+        "class": "Bolt\\Extension\\BobdenOtter\\Seo\\SeoExtension",
+        "constraint": "^3.0",
+        "valid": true
+    },
+    "bolt/sitemap": {
+        "name": "bolt/sitemap",
+        "path": "vendor/bolt/sitemap",
+        "webPath": "extensions/vendor/bolt/sitemap",
+        "class": "Bolt\\Extension\\Bolt\\Sitemap\\SitemapExtension",
+        "constraint": "^3.0",
+        "valid": true
+    },
+    "bolt/boltforms": {
+        "name": "bolt/boltforms",
+        "path": "vendor/bolt/boltforms",
+        "webPath": "extensions/vendor/bolt/boltforms",
+        "class": "Bolt\\Extension\\Bolt\\BoltForms\\BoltFormsExtension",
+        "constraint": "^3.0",
+        "valid": true
+    },
+    "bolt/email-spooler": {
+        "name": "bolt/email-spooler",
+        "path": "vendor/bolt/email-spooler",
+        "webPath": "extensions/vendor/bolt/email-spooler",
+        "class": "Bolt\\Extension\\Bolt\\EmailSpooler\\EmailSpoolerExtension",
+        "constraint": "^3.3",
+        "valid": true
+    },
+    "bolt/robots": {
+        "name": "bolt/robots",
+        "path": "vendor/bolt/robots",
+        "webPath": "extensions/vendor/bolt/robots",
+        "class": "Bolt\\Extension\\Bolt\\Robots\\RobotsExtension",
+        "constraint": "^3.0",
+        "valid": true
+    },
+    "hellonico/minify-html": {
+        "name": "hellonico/minify-html",
+        "path": "vendor/hellonico/minify-html",
+        "webPath": "extensions/vendor/hellonico/minify-html",
+        "class": "Bolt\\Extension\\Hellonico\\MinifyHtml\\MinifyHtmlExtension",
+        "constraint": "^3.0",
+        "valid": true
+    }
+}

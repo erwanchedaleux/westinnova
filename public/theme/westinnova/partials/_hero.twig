@@ -1,34 +1,34 @@
 <div class="mod-hero">
     <div class="mod-hero-background">
         <picture class="mod-hero-picture">
-            <source data-srcset="{{ thumbnail(record.image, 'hero_mobile_320') ~ '?' ~ version }} 320w,
-                            {{ thumbnail(record.image, 'hero_mobile_640') ~ '?' ~ version }} 640w,
-                            {{ thumbnail(record.image, 'hero_mobile_960') ~ '?' ~ version }} 960w"
+            <source data-srcset="{{ thumbnail(img, 'hero_mobile_320') ~ '?' ~ version }} 320w,
+                            {{ thumbnail(img, 'hero_mobile_640') ~ '?' ~ version }} 640w,
+                            {{ thumbnail(img, 'hero_mobile_960') ~ '?' ~ version }} 960w"
                     media="(max-width: 639px)"
                     sizes="100vw">
-            <source data-srcset="{{ thumbnail(record.image, 'hero_tablet_640') ~ '?' ~ version }} 640w,
-                            {{ thumbnail(record.image, 'hero_tablet_960') ~ '?' ~ version }} 960w,
-                            {{ thumbnail(record.image, 'hero_tablet_1490') ~ '?' ~ version }} 1440w"
+            <source data-srcset="{{ thumbnail(img, 'hero_tablet_640') ~ '?' ~ version }} 640w,
+                            {{ thumbnail(img, 'hero_tablet_960') ~ '?' ~ version }} 960w,
+                            {{ thumbnail(img, 'hero_tablet_1490') ~ '?' ~ version }} 1440w"
                     media="(min-width: 640px) and (max-width: 959px)"
                     sizes="100vw">
-            <source data-srcset="{{ thumbnail(record.image, 'hero_desktop_1600') ~ '?' ~ version }} 1600w,
-                            {{ thumbnail(record.image, 'hero_desktop_2400') ~ '?' ~ version }} 2400w"
+            <source data-srcset="{{ thumbnail(img, 'hero_desktop_1600') ~ '?' ~ version }} 1600w,
+                            {{ thumbnail(img, 'hero_desktop_2400') ~ '?' ~ version }} 2400w"
                     media="(min-width: 960px)"
                     sizes="100vw">
             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                 data-src="{{ thumbnail(record.image, 'hero_tablet_960') ~ '?' ~ version }}"
+                 data-src="{{ thumbnail(img, 'hero_tablet_960') ~ '?' ~ version }}"
                  alt=""
                  class="mod-hero-img lazyload">
         </picture>
     </div>
-    {% if baseline is not empty %}
+    {% if baseline is defined and baseline is not empty %}
         <div class="mod-hero-content">
             {% if baseline is not empty %}
                 <div class="mod-hero-baseline">
-                    {{ baseline }}
+                    {{ baseline|raw }}
                 </div>
             {% endif %}
-            {% if arrow is not empty and arrow == 1 %}
+            {% if arrow is defined and arrow is not empty and arrow == 1 %}
                 <div class="mod-hero-icon">
                     <a href="#{{ (anchor is defined and anchor is not empty) ? anchor : '' }}" class="icon-arrow-1-c scroll-to">
                         Voir la suite

@@ -31,10 +31,6 @@ pages:
         template:
             type: templateselect
             filter: '*.twig'
-        robots:
-            type: checkbox
-            label: "référencer cette page"
-            default: 1
         image_hero:
             group: Hero
             label: Image
@@ -56,6 +52,46 @@ pages:
             group: "SEO"
     taxonomy: [ groups ]
     recordsperpage: 100
+
+references:
+    name: Références
+    singular_name: Référence
+    fields:
+        date:
+            label: Date affichée
+            type: date
+            variant: inline
+            group: content
+        title:
+            type: text
+            class: large
+        slug:
+            type: slug
+            uses: title
+        image:
+            label: Image
+            type: image
+            extensions: [ jpg, png ]
+        body:
+            type: html
+            height: 300px
+        image_hero:
+            group: Hero
+            label: Image
+            postfix: "<p><em>Image de background<br/>Taille minimum de l'image : 2400px x 990px.</em></p>"
+            type: image
+            extensions: [ jpg ]
+        image_hero_baseline:
+            label: Texte sur l'image
+            type: html
+            height: 100px
+        seo:
+            type: seo
+            group: "SEO"
+    record_template: reference.twig
+    listing_template: references.twig
+    taxonomy: [ categories, tags ]
+    sort: -datepublish
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
