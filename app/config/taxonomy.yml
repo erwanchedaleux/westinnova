@@ -17,7 +17,7 @@ groups:
     has_sortorder: true
 
 categories:
-    name: Categories
+    name: Catégories
     slug: categories
     singular_name: Category
     singular_slug: category

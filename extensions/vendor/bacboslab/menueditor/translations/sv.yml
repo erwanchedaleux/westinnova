@@ -1,0 +1,72 @@
+#--
+# Auth/permissions/menuitem/title
+#--
+menueditor.notallowed: "Den inloggade användaren har inte behörighet att se sidan."
+menueditor.title: "Menyredigerare"
+menueditor.menuitem: "Menyredigerare"
+
+#--
+# Flash messages
+#--
+menueditor.flash.saved: "Menyerna har sparats"
+menueditor.flash.error: "Menyerna kunde inte sparas så de har återställts."
+menueditor.flash.backup: 'Meny backup från %time% har återställts'
+menueditor.flash.removefield: "The field <strong>%1%</strong> has successfully been remmoved. Don't forget to safe your changes."
+menueditor.flash.addedfield: "The field <strong>%1%</strong> has successfully been added. Don't forget to safe your changes."
+
+#--
+# Search
+#--
+menueditor.search.taxonomy: "Taxonomi"
+menueditor.search.overview: "Oversikt"
+
+#--
+# Actions
+#--
+menueditor.actions.save: "Spara menyerna"
+menueditor.actions.showhidechildren: "Klicka för att visa/dölja undermenypunkter"
+menueditor.action.showhideeditor: "Klicka för att visa/dölja redigeraren"
+menueditor.action.delete: "Klicka för att ta bort menypunkten."
+menueditor.actions.add: "Lägg till menypunkt"
+menueditor.actions.restorebackups: "Återställ backups"
+menueditor.actions.addfield: "Add field"
+menueditor.actions.removeField: "Remove field"
+
+#--
+# Fields
+#--
+menueditor.fields.label: "Etikett"
+menueditor.fields.link: "Länk"
+menueditor.fields.path: "Sökväg"
+path: "Sökväg"
+link: "Länk"
+class: "Klass"
+title: "Titel"
+
+#--
+# Backups
+#--
+menueditor.backups.from: "Från"
+menueditor.backups.date: "Datum"
+menueditor.backups.restore: "Återställ"
+menueditor.backups.nobackups: "Inga backups än, backups skapas automatiskt när du sparar menyn"
+
+#--
+# JS translations
+#--
+menueditor.js.loading: "Laddar förslag"
+menueditor.js.newlink: "Ny länk till"
+
+#--
+# Modal window
+#--
+menueditor.modal.close: "Close"
+menueditor.modal.add: "Add"
+menueditor.modal.title: "Add a new field"
+menueditor.modal.label: "Label"
+menueditor.modal.value: "Value"
+
+#--
+# Confirm Questions
+#--
+menueditor.confirm.removefield: "Are you sure you want to rmove the field: %1%?"

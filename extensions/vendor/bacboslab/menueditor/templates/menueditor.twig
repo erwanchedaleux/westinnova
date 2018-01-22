@@ -1,0 +1,133 @@
+{% extends "_base/_page-nav.twig" %}
+{% import "@bolt/menuitem.twig" as item %}
+
+{% block page_title %}
+    <form type="post" class="saveform" method="post">
+        <input type="hidden" name="menus" value="">
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" data-content="{{ __('menueditor.actions.save', {'DEFAULT':'Save menus'}) }} ">
+                &nbsp;<i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </button>
+        </div>
+    </form>
+    {{ __('menueditor.title', {'DEFAULT': 'Menu editor'})}}
+{% endblock %}
+
+{% block page_nav 'Settings/Extensions' %}
+
+{% block page_main %}
+    <div class="row">
+        <div class="col-md-8 menus">
+            <ul class="nav nav-tabs" role="tablist">
+                {% for name, menu in menus %}
+                    <li role="presentation" class="{{loop.first ? 'active'}}">
+                        <a href="#{{name}}" aria-controls="{{name}}" role="tab" data-toggle="tab">{{name}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="tab-content">
+                {% for name, menu in menus %}
+                    <div role="tabpanel" class="tab-pane {{loop.first ? 'active'}}" id="{{name}}">
+                        <ol class="sortable">
+                            {% for menuitem in menu %}
+                                {{ item.menuitem(menuitem, loop.index, menu_config, name) }}
+                            {% endfor %}
+                        </ol>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <aside class="col-md-4 sidebar">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#add-menu-item" aria-controls="add-menu-item" role="tab" data-toggle="tab">{{ __('menueditor.actions.add', {'DEFAULT': 'Add menu item'})}}</a>
+                </li>
+                {% if menu_config.backups.enable %}
+                    <li role="presentation" class="">
+                        <a href="#restore-backups" aria-controls="restore-backups" role="tab" data-toggle="tab">{{ __('menueditor.actions.restorebackups', {'DEFAULT': 'Restore backups'})}}</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="add-menu-item">
+                    <form class="form-horizontal additem">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-4 control-label">{{ __('menueditor.fields.label', {'DEFAULT': 'Label'})}}</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="{{ __('menueditor.fields.label', {'DEFAULT': 'Label'})}}" name="label">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="col-sm-4 control-label">{{ __('menueditor.fields.link', {'DEFAULT': 'Link'})}}/{{ __('menueditor.fields.path', {'DEFAULT': 'Path'})}}</label>
+                            <div class="col-sm-8">
+                                <select class="js-data-example-ajax" name="link" style="width: 100%;">
+                                    {% for item in items|default([]) %}
+                                        <option value="{{ item.link }}">{{item.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% if menu_config.backups.enable %}
+                    <div role="tabpanel" class="tab-pane" id="restore-backups">
+                        {% if backups %}
+                            <table class="table">
+                                <tr>
+                                    <th>{{ __('menueditor.backups.from', {'DEFAULT': 'From'})}}
+                                    <th>{{ __('menueditor.backups.date', {'DEFAULT': 'Date'})}}
+                                    <th>
+                                {% for backup in backups %}
+                                    <tr>
+                                        <td>{{backup.carbon.diffForHumans()}}
+                                        <td>{{backup.carbon.toDateTimeString()}}
+                                        <td>
+                                            <form method="post">
+                                                <input type="hidden" name="backup" value="{{backup.filename}}">
+                                                <button type="submit" class="btn btn-warning btn-xs">{{ __('menueditor.backups.restore', {'DEFAULT': 'Restore'})}}</button>
+                                            </form>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            <p>{{ __('menueditor.backups.nobackups', {'DEFAULT': 'No backups yet, backups are created automatically when you save the menu.'})}}</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </aside>
+    </div>
+    <script>var menuEditorTranslations = {{JsTranslations|raw}}</script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="new-field" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('menueditor.modal.close', {'DEFAULT': 'Close'}) }}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">{{ __('menueditor.modal.title', {'DEFAULT': 'Add a new field'}) }}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" class="form-control" id="field-id">
+                        <div class="form-group">
+                            <label for="field-label" class="control-label">{{ __('menueditor.modal.label', {'DEFAULT': 'Label'}) }}:</label>
+                            <input type="text" class="form-control" id="field-label">
+                        </div>
+                        <div class="form-group">
+                            <label for="field-value" class="control-label">{{ __('menueditor.modal.value', {'DEFAULT': 'Value'}) }}:</label>
+                            <textarea class="form-control" id="field-value"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('menueditor.modal.close', {'DEFAULT': 'Close'}) }}</button>
+                    <button type="button" class="btn btn-primary" id="add-new-field">{{ __('menueditor.modal.add', {'DEFAULT': 'Add a new field'}) }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

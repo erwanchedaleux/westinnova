@@ -90,12 +90,12 @@ sitemapXml:
 
 # Example override for a specific contenttype
 
-# pagebinding:
-#     path: /{slug}
-#     defaults:
-#         _controller: controller.frontend:record
-#         contenttypeslug: page
-#     contenttype: pages
+pagebinding:
+    path: /{slug}
+    defaults:
+        _controller: controller.frontend:record
+        contenttypeslug: page
+    contenttype: pages
 
 
 
@@ -109,21 +109,37 @@ sitemapXml:
 #         slug: about
 #     recordslug: page/about
 
-about:
-    path: /a-propos
-    defaults:
-        _controller: controller.frontend:record
-        contenttypeslug: page
-        slug: a-propos
-    recordslug: page/a-propos
-
-services:
-    path: /services
-    defaults:
-        _controller: controller.frontend:record
-        contenttypeslug: page
-        slug: services
-    recordslug: page/services
+# about:
+#     path: /a-propos
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: page
+#         slug: a-propos
+#     recordslug: page/a-propos
+#
+# services:
+#     path: /services
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: page
+#         slug: services
+#     recordslug: page/services
+#
+# legal_information:
+#     path: /informations-legales
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: page
+#         slug: informations-legales
+#     recordslug: page/informations-legales
+#
+# terms-and-conditions:
+#     path: /conditions-generales-de-ventes
+#     defaults:
+#         _controller: controller.frontend:record
+#         contenttypeslug: page
+#         slug: conditions-generales-de-ventes
+#     recordslug: page/conditions-generales-de-ventes
 
 references:
     path: /references

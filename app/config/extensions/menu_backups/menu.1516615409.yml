@@ -1,0 +1,18 @@
+main:
+    -
+        label: Accueil
+        title: 'Retourner à la page d''accueil'
+        path: homepage
+    -
+        label: 'À propos'
+        path: a-propos
+    -
+        label: Services
+        path: services
+    -
+        label: Références
+        path: references
+    -
+        label: Contact
+        link: '/#contact'
+        class: ' scroll-to'

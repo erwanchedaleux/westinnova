@@ -1,5 +1,80 @@
 [
     {
+        "name": "bacboslab/menueditor",
+        "version": "3.2.2",
+        "version_normalized": "3.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bacbos/bolt-menu-editor.git",
+            "reference": "959e6064ab11a66e0bbc319fc7338812441b100a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bacbos/bolt-menu-editor/zipball/959e6064ab11a66e0bbc319fc7338812441b100a",
+            "reference": "959e6064ab11a66e0bbc319fc7338812441b100a",
+            "shasum": ""
+        },
+        "require": {
+            "bolt/bolt": "^3.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.7"
+        },
+        "time": "2017-07-26T21:07:59+00:00",
+        "type": "bolt-extension",
+        "extra": {
+            "bolt-icon": "bolt-menu-editor.png",
+            "bolt-assets": "web",
+            "bolt-class": "Bolt\\Extension\\Bacboslab\\Menueditor\\MenueditorExtension",
+            "bolt-screenshots": [
+                "screenshot.png",
+                "screenshot2.png"
+            ]
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bolt\\Extension\\Bacboslab\\Menueditor\\": "src"
+            }
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "Bolt\\Extension\\Bacboslab\\Menueditor\\Tests\\": "tests",
+                "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Steven Wüthrich / bacbos lab",
+                "email": "hello@bacbos.ch",
+                "homepage": "http://bacbos.ch"
+            },
+            {
+                "name": "Svante Richter",
+                "email": "svante.richter@gmail.com"
+            },
+            {
+                "name": "Erwin Goossen",
+                "email": "erwin@navelpluisje.nl"
+            }
+        ],
+        "description": "A visual menu editor for Bolt CMS",
+        "keywords": [
+            "admin",
+            "editor",
+            "menu",
+            "tool",
+            "visual"
+        ],
+        "support": {
+            "source": "https://github.com/bacbos/bolt-menu-editor/tree/3.2.2",
+            "issues": "https://github.com/bacbos/bolt-menu-editor/issues"
+        }
+    },
+    {
         "name": "bobdenotter/seo",
         "version": "1.0.6",
         "version_normalized": "1.0.6.0",

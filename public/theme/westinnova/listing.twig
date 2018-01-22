@@ -1,72 +1,83 @@
 {% extends '_extended_base.twig' %}
+{% set meta_title_override = 'Références pour ' ~ (taxonomy.slug == 'categories' ? 'la catégorie "' : 'le mot clé "') ~ slug ~ '"' %}
+{% set meta_description_override = '' %}
 
 {% block content %}
 
-        {# This template is used for 'listings': Generic pages that list a number of
-           records from a certain contenttype. These records are available as an array
-           called 'records'. In the for-loop below, we iterate over the records that
-           are on this page. It can be used for overview pages like 'all entries', or
-           'all records tagged with kittens'. #}
+        {# Hero #}
+        {% include 'partials/_hero.twig' with {
+            'baseline': '<h1><strong>Mes références</strong> <br />pour ' ~ (taxonomy.slug == 'categories' ? 'la catégorie "' : 'le mot clé "') ~ slug ~ '"</h1>',
+            'class': 'alt'
+        } %}
 
-        {# If used for listing a taxonomy, we add a heading.: #}
-        {% if taxonomytype is defined %}
-            <h1>
-                {{ __('general.phrase.overview-for') }}
-                {% if taxonomy.options[slug] is defined %}
-                    {{ taxonomy.options[slug] }}
-                {% else %}
-                    {{ slug }}
-                {% endif %}
-            </h1>
-            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
-               is set to true. This way we keep 'grouping' intact in the listing. #}
-            {% if not taxonomy.has_sortorder %}
-                {# If we specified an order in config.yml, sort them here, accordingly: #}
-                {% set records = records|order(config.get('general/listing_sort')) %}
-            {% endif %}
-        {% endif %}
-
-        {% for record in records %}
-            <article>
-
-                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
-
-                {% if record.image!="" %}
-                    <a href="{{ image(record.image) }}">
-                        <img src="{{ thumbnail(record.image, 400, 260) }}">
-                    </a>
-                {% endif %}
-
-                {# display something introduction-like.. #}
-                {% if record.introduction %}
-                    {{ record.introduction }}
-                {% elseif record.teaser %}
-                    {{ record.teaser }}
-                {% else %}
-                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
-                {% endif %}
-
-                {#% include 'partials/_recordfooter.twig' with { 'record': record } %#}
-
-            </article>
-
-            {% if not loop.last %}
-                <hr>
-            {% endif %}
-
-        {% else %}
-            <article>
-
-                <h2>{{ __('general.phrase.no-content-found') }}</h2>
-
-                <p>
-                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-                </p>
-                
-            </article>
-        {% endfor %}
-
-        {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(template = 'partials/_pagination.twig') }}
+        <div class="site-listing">
+            <div class="inner">
+                <div class="row-tablet row-desktop">
+                    {% for record in records %}
+                        {# Reference element #}
+                        <div class="col-tablet-6 col-desktop-4">
+                            <div class="sl-reference">
+                                {# Taxonomies #}
+                                {% if record.taxonomy is defined %}
+                                    <div class="sl-taxonomy">
+                                        {% if record.taxonomy.tags is defined %}
+                                            <div class="sl-tags">
+                                                <ul class="sl-list">
+                                                    {% for route, tag in record.taxonomy.tags %}
+                                                        <li class="sl-itm">
+                                                            <a href="{{ route }}" title="{{ tag }}" class="sl-lnk">{{ tag }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <div class="sl-foreground">
+                                    {% if record.image != "" %}
+                                        <a href="{{ record.link }}" class="slf-lnk">
+                                            <img data-srcset="{{ thumbnail(record.image, 300, 295) ~ '?' ~ version }} 300w,
+                                                         {{ thumbnail(record.image, 370, 364) ~ '?' ~ version }} 370w,
+                                                         {{ thumbnail(record.image, 555, 546) ~ '?' ~ version }} 555w"
+                                                 sizes="(max-width:639px) 300px, (min-width:640px) 370px"
+                                                 data-src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 alt=""
+                                                 class="slf-img lazyload" />
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                {# Title #}
+                                <h2 class="sl-title">
+                                    <a href="{{ record.link }}" title="{{ record.title }}" class="slt-lnk">
+                                        {{ record.title }}
+                                    </a>
+                                </h2>
+                                {# Content/Excerpt #}
+                                <div class="sl-content">
+                                    <span class="slc-date">
+                                        {% if record.date is not empty %}
+                                            {{ record.date|date("m/Y") }}
+                                        {% endif %}
+                                    </span>
+                                    <p class="slc-excerpt">
+                                        {% if record.introduction %}
+                                            {{ record.introduction }}
+                                        {% elseif record.teaser %}
+                                            {{ record.teaser }}
+                                        {% else %}
+                                            {{ record.excerpt(150, false, search|default('')) }}
+                                        {% endif %}
+                                    </p>
+                                    <a href="{{ record.link }}" title="En savoir plus sur {{ record.title }}" class="slc-lnk">
+                                        En savoir plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {{ pager(template = 'partials/_pagination.twig') }}
+            </div>
+        </div>
 
 {% endblock content %}

@@ -2,6 +2,76 @@
 
 {% block content %}
 
-    PAGE REFERENCE
+    {% if record is defined %}
+        {% include 'partials/_hero.twig' with {
+            'img': (record.image_hero ? record.image_hero : ''),
+            'baseline': record.image_hero_baseline,
+            'arrow': record.image_hero_arrow,
+            'anchor': record.image_hero_arrow_link,
+            'class': 'alt'
+        } %}
+        <div class="site-content article">
+            <div class="inner">
+                {% if record.body %}
+                    <div class="sc-body">
+                        <div class="sc-post">
+                            <span class="scp-name">
+                                Nom du projet : {{ record.title }}
+                            </span>
+                            <span class="scp-date">
+                                Date de création {{ record.date|date("m/Y") }}
+                            </span>
+                            <div class="scp-taxonomy">
+                                {% if record.taxonomy is defined %}
+                                    {% if record.taxonomy.categories|length %}
+                                        <div class="scp-categories">
+                                            <span>Catégories :</span>
+                                            <ul class="scp-list">
+                                                {% for slug, category in record.taxonomy.categories %}
+                                                    <li class="scp-itm">
+                                                        <a href="{{ slug }}" class="scp-lnk">
+                                                            {{ category }}
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if record.taxonomy.tags|length %}
+                                        <div class="scp-tags">
+                                            <span>Catégories :</span>
+                                            <ul class="scp-list">
+                                                {% for slug, tag in record.taxonomy.tags %}
+                                                    <li class="scp-itm">
+                                                        <a href="{{ slug }}" class="scp-lnk">
+                                                            {{ tag }}
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if record.image != "" %}
+                            <div class="sr-foreground">
+                                <a href="{{ image(record.image) }}" class="srf-lnk">
+                                    <img data-srcset="{{ thumbnail(record.image, 300, 295) ~ '?' ~ version }} 300w,
+                                                 {{ thumbnail(record.image, 370, 364) ~ '?' ~ version }} 370w,
+                                                 {{ thumbnail(record.image, 555, 546) ~ '?' ~ version }} 555w"
+                                         sizes="(max-width:639px) 300px, (min-width:640px) 370px"
+                                         data-src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                         alt=""
+                                         class="srf-img lazyload" />
+                                </a>
+                            </div>
+                        {% endif %}
+                        {{ record.body }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock content %}

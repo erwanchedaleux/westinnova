@@ -47,6 +47,9 @@ pages:
         image_hero_arrow_link:
             type: text
             label: "Cible de l'ancre (id)"
+        image_hero_css_class:
+            type: text
+            label: "Classe CSS"
         seo:
             type: seo
             group: "SEO"
@@ -92,6 +95,7 @@ references:
     listing_template: references.twig
     taxonomy: [ categories, tags ]
     sort: -datepublish
+    recordsperpage: 100
 
 
 # Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',

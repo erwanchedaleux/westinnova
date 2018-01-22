@@ -28,6 +28,7 @@
         }
     },
     "require": {
+        "bacboslab/menueditor": "^3.2",
         "bobdenotter/seo": "^1.0",
         "bolt/boltforms": "^4.1",
         "bolt/robots": "^1.0",

@@ -6,7 +6,7 @@
         {%- set maintenance = config.get('general/maintenance_mode') %}
         {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
         {%- set site_title = config.get('general/sitename') %}
-        {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags : (seo.title() is defined ? seo.title() : '')) %}
+        {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags ~ ' | ' ~ config.get('general/sitename') : (seo.title() is defined ? seo.title() : '')) %}
         {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (seo.description() is defined ? seo.description() : '')) %}
         {%- set meta_keywords = config.get('general/meta_keywords') %}
         {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
@@ -29,6 +29,7 @@
 
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {#<link rel="alternate" hreflang="fr" href="{{ current_url }}/"/>#}
 
         <title>{{ meta_title|raw }}</title>
         {%- if not debug and dev_mode == 'false' -%}

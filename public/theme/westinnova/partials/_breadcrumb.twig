@@ -1,0 +1,55 @@
+{% if app.request.get('_route') != 'homepage' %}
+    <div class="site-breadcrumb">
+        <div class="inner">
+            <ol class="sb-list" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="{{ path('homepage') }}" class="sb-lnk" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                         <span itemprop="name">
+                             Accueil
+                        </span>
+                    </a>
+                </li>
+                {% if app.request.get('_route') == 'contentlink' %}
+                    <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="{{ path(record.contenttype.slug) }}" class="sb-lnk" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                            <span itemprop="name">
+                                {{ record.contenttype.name }}
+                            </span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if record is defined %}
+                    <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <span class="sb-current" itemprop="name">
+                            {{ record.title }}
+                        </span>
+                    </li>
+                {% endif %}
+                {% if app.request.get('_route') == 'contentlisting' %}
+                    {% for record in records|slice(0, 1) %}
+                        <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <span class="sb-current" itemprop="name">
+                                {{ record.contenttype.name }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                {% elseif app.request.get('_route') == 'taxonomylink' %}
+                    {% for record in records|slice(0, 1) %}
+                        <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a href="{{ path(record.contenttype.slug) }}" class="sb-lnk" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                                <span itemprop="name">
+                                    {{ record.contenttype.name }}
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li class="sb-itm" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <span class="sb-current" itemprop="name">
+                            {{ taxonomy.name ~ ' : ' ~ slug }}
+                        </span>
+                    </li>
+                {% endif %}
+            </ol>
+        </div>
+    </div>
+{% endif %}

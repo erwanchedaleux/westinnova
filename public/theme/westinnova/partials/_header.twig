@@ -8,8 +8,10 @@
                              {{ asset('assets/media/img/' ~ site_logo ~ '-329.png', 'theme', true, version) }} 329w"
                      sizes="(max-width:639px) 132px, (min-width:640px) and (max-width:959px) 198px, (min-width:960px) 219px"
                      alt="{{ config.get('general/sitename') }}"
-                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                     class="sh-img">
+                     data-src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     src="{{ asset('assets/media/img/' ~ site_logo ~ '-329.png', 'theme', true, version) }}"
+                     class="sh-img"
+                     itemprop="image" />
             </div>
         </a>
         {% block navigation %}

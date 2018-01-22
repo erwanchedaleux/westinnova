@@ -1,7 +1,7 @@
 /*!
  *  Westinnova
  *  @author: Erwan Chedaleux
- *  @version: 0.1.9
+ *  @version: 0.1.10
  *  
 */
 
@@ -393,6 +393,41 @@ ul {
     font-size: 1.4rem;
   }
 }
+.site-breadcrumb {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgba(0,0,0,0.3);
+}
+.sb-list {
+  display: block;
+  font-size: 0;
+  text-transform: uppercase;
+}
+.sb-itm {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+.sb-lnk {
+  color: #fff;
+  font-weight: 700;
+}
+.sb-lnk:hover {
+  text-decoration: underline;
+}
+.sb-lnk:after {
+  content: ">";
+  display: inline-block;
+  float: right;
+  margin: 0 10px;
+  font-weight: 700;
+}
+.sb-current {
+  color: #fff;
+}
 html,
 body {
   overflow-x: hidden;
@@ -670,6 +705,9 @@ body {
   .mod-hero {
     height: calc(100vh - 75px);
   }
+  .mod-hero.alt {
+    height: 320px;
+  }
 }
 @media all and (min-width: 960px) {
   .mod-hero {
@@ -692,7 +730,7 @@ body {
     font-size: 5rem;
   }
   .mod-hero-baseline h1 br {
-    display: block;
+    display: inline-block;
   }
 }
 @media all and (min-width: 1400px) {

@@ -1,0 +1,51 @@
+/***************************************/
+
+.site-breadcrumb
+    position                            absolute
+    z-index                             1
+    top                                 0
+    left                                0
+    width                               100%
+    padding                             20px 0
+    background-color                    rgba($color1, 0.3)
+
+.sb-list
+    display                             block
+    font-size                           0
+    text-transform                      uppercase
+
+.sb-itm
+    display                             inline-block
+    font-size                           1.2rem
+
+.sb-lnk
+    color                               $color2
+    font-b()
+
+    &:hover
+        text-decoration                 underline
+
+    &:after
+        content                         ">"
+        display                         inline-block
+        float                           right
+        margin                          0 10px
+        font-b()
+
+.sb-current
+    color                               $color2
+
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+// @media all and ( min-width: $mediumScreenContentMaxWidth )
+
+
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )

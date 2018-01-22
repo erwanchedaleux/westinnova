@@ -1,0 +1,68 @@
+#--
+# Auth/permissions/menuitem/title
+#--
+menueditor.notallowed: "Logged in user does not have the correct rights to use this route."
+menueditor.title: "Menu editor"
+menueditor.menuitem: "Menu editor"
+
+#--
+# Flash messages
+#--
+menueditor.flash.saved: "The menus have been saved"
+menueditor.flash.error: "Menu couldn\'t be saved, we have restored it to it\'s last known good state."
+menueditor.flash.backup: 'Menu backup from %time% restored'
+menueditor.flash.removefield: "The field <strong>%1%</strong> has successfully been removed. Don't forget to safe your changes."
+menueditor.flash.addedfield: "The field <strong>%1%</strong> has successfully been added. Don't forget to safe your changes."
+
+#--
+# Search
+#--
+menueditor.search.taxonomy: "Taxonomy"
+menueditor.search.overview: "Overview"
+
+#--
+# Actions
+#--
+menueditor.actions.save: "Save menus"
+menueditor.actions.showhidechildren: "Click to show/hide children"
+menueditor.action.showhideeditor: "Click to show/hide item editor"
+menueditor.action.delete: "Click to delete item."
+menueditor.actions.add: "Add menu item"
+menueditor.actions.restorebackups: "Restore backups"
+menueditor.actions.addfield: "Add field"
+menueditor.actions.removeField: "Remove field"
+
+#--
+# Fields
+#--
+menueditor.fields.label: "Label"
+menueditor.fields.link: "Link"
+menueditor.fields.path: "Path"
+
+#--
+# Backups
+#--
+menueditor.backups.from: "From"
+menueditor.backups.date: "Date"
+menueditor.backups.restore: "Restore"
+menueditor.backups.nobackups: "No backups yet, backups are created automatically when you save the menu."
+
+#--
+# JS translations
+#--
+menueditor.js.loading: "Loading suggestions"
+menueditor.js.newlink: "New link to"
+
+#--
+# Modal window
+#--
+menueditor.modal.close: "Close"
+menueditor.modal.add: "Add"
+menueditor.modal.title: "Add a new field"
+menueditor.modal.label: "Label"
+menueditor.modal.value: "Value"
+
+#--
+# Confirm Questions
+#--
+menueditor.confirm.removefield: "Are you sure you want to remove the field: %1%?"

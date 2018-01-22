@@ -1,4 +1,10 @@
-<div class="mod-hero">
+{% if img is not defined or img is empty %}
+    {% set img = '2018-01/westinnova-default-hero.jpg' %}
+{% endif %}
+<div class="mod-hero {{ (class is defined ? class : '') }}">
+    {% block breadcrumb %}
+        {% include 'partials/_breadcrumb.twig' %}
+    {% endblock %}
     <div class="mod-hero-background">
         <picture class="mod-hero-picture">
             <source data-srcset="{{ thumbnail(img, 'hero_mobile_320') ~ '?' ~ version }} 320w,

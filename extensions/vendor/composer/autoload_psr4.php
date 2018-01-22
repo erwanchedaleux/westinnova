@@ -13,5 +13,6 @@ return array(
     'Bolt\\Extension\\Bolt\\EmailSpooler\\' => array($vendorDir . '/bolt/email-spooler/src'),
     'Bolt\\Extension\\Bolt\\BoltForms\\' => array($vendorDir . '/bolt/boltforms/src'),
     'Bolt\\Extension\\BobdenOtter\\Seo\\' => array($vendorDir . '/bobdenotter/seo/src'),
+    'Bolt\\Extension\\Bacboslab\\Menueditor\\' => array($vendorDir . '/bacboslab/menueditor/src'),
     'Bolt\\Composer\\EventListener\\' => array($baseDir . '/../vendor/bolt/bolt/src/Composer/EventListener'),
 );

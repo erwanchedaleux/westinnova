@@ -19,6 +19,7 @@ class ComposerStaticInit47d4273fd5e06aaf424e344aa732fa0f
             'Bolt\\Extension\\Bolt\\EmailSpooler\\' => 33,
             'Bolt\\Extension\\Bolt\\BoltForms\\' => 30,
             'Bolt\\Extension\\BobdenOtter\\Seo\\' => 31,
+            'Bolt\\Extension\\Bacboslab\\Menueditor\\' => 36,
             'Bolt\\Composer\\EventListener\\' => 28,
         ),
     );
@@ -51,6 +52,10 @@ class ComposerStaticInit47d4273fd5e06aaf424e344aa732fa0f
         'Bolt\\Extension\\BobdenOtter\\Seo\\' => 
         array (
             0 => __DIR__ . '/..' . '/bobdenotter/seo/src',
+        ),
+        'Bolt\\Extension\\Bacboslab\\Menueditor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bacboslab/menueditor/src',
         ),
         'Bolt\\Composer\\EventListener\\' => 
         array (
