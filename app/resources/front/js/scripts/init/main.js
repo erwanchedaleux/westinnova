@@ -2,8 +2,8 @@
 module.exports = ( function ( $ ) {
 
     function init() {
-        var Cookies, Header, Expertise, Form, ScrollTo, Hero,
-            $body, $cookies, $header, $expertise, $forms, $scrollsTo, $heroEffect, $messageForm;
+        var Cookies, Header, Expertise, Form, ScrollTo, Hero, Listing,
+            $body, $cookies, $header, $expertise, $forms, $scrollsTo, $heroEffect, $messageForm, $listing;
 
         Cookies                                 = require( '../cookies.js' );
         Header                                  = require( '../header.js' );
@@ -11,6 +11,7 @@ module.exports = ( function ( $ ) {
         Form                                    = require( '../form.js' );
         ScrollTo                                = require( '../scroll-to.js' );
         Hero                                    = require( '../hero.js' );
+        Listing                                 = require( '../listing.js' );
 
         $body                                   = $( document.body );
         $cookies                                = $( '.site-cookies' );
@@ -20,6 +21,7 @@ module.exports = ( function ( $ ) {
         $scrollsTo                              = $( '.scroll-to' );
         $heroEffect                             = $( '.hero-effect' );
         $messageForm                            = $( '.boltform-message' );
+        $listing                                = $( '.site-listing' );
 
 
         if ( $cookies.length ) {
@@ -63,6 +65,11 @@ module.exports = ( function ( $ ) {
         if( typeof( Waves ) !== 'undefined' ){
             window.Waves.attach( '[class^="btn-"]', [ 'waves-button' ] );
             window.Waves.init();
+
+        }
+
+        if ( $listing.length ) {
+            new Listing( $listing );
 
         }
 

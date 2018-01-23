@@ -18,13 +18,13 @@
                     <div class="sl-sortbar">
                         <ul class="sls-list">
                             <li class="sls-itm">
-                                <button type="button" class="btn-1 active sls-btn">
+                                <button type="button" class="btn-1 active sls-btn" data-category="all">
                                     Toutes les catégories
                                 </button>
                             </li>
                             {% for category in categories_list -%}
                                 <li class="sls-itm">
-                                    <button type="button" class="btn-1 sls-btn">
+                                    <button type="button" class="btn-1 sls-btn" data-category="{{ category|lower }}">
                                         {{ category }}
                                     </button>
                                 </li>
@@ -36,11 +36,11 @@
                         {% set categories = '' %}
                         {% if record.taxonomy.categories is defined %}
                             {% for category in record.taxonomy.categories %}
-                                {% set categories = (categories ? categories ~ ', ' : '' ) ~ category %}
+                                {% set categories = (categories ? categories ~ ', ' : '' ) ~ category|lower %}
                             {% endfor %}
                         {% endif %}
                         {# Reference element #}
-                        <div class="col-tablet-6 col-desktop-4">
+                        <div class="sl-reference-wrapper col-tablet-6 col-desktop-4">
                             <div class="sl-reference" data-categories="{{ categories }}">
                                 {# Taxonomies #}
                                 {% if record.taxonomy is defined %}

@@ -94,7 +94,7 @@ references:
     record_template: reference.twig
     listing_template: references.twig
     taxonomy: [ categories, tags ]
-    sort: -datepublish
+    sort: -date
     recordsperpage: 100
 
 
